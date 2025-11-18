@@ -84,10 +84,10 @@ def crawl(url):
     stats.append(followers)
 
     add_to_stats_db(id=crawlcounter,site_url=stats[0],profile_url=stats[1],views=stats[2],followers=stats[3])
-   
+    
     for link in link_list:
         if crawlcounter >= sites_to_crawl:
-            return
+            continue
         elif "/follows" not in link and link not in sites_visited:
             sites_visited.append(link)
             crawlcounter += 1

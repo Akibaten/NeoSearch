@@ -13,7 +13,7 @@ neorank_db = sqlite3.connect("../data/neorank.db")
 neorank_db_cursor = neorank_db.cursor()
 
 #strictly for passing keyword argument from command line
-keyword = sys.argv[1]
+keywords = sys.argv[1]
 
 def search(word):
 
@@ -24,46 +24,38 @@ def search(word):
                         WHERE word = ?
                     """, (word,)).fetchall()))
     id_with_keyword = [tuple[1] for tuple in id_with_keyword]
-            
-    neorank_list = list(neorank_db_cursor.execute("""
-                                SELECT * FROM neorank                              
-                                ORDER BY rank DESC"""))
-   
-    sorted_ids = [rank[0] for rank in neorank_list if rank[0] in id_with_keyword]                            
-    
-    pages_with_keyword = [list(stats_db_cursor.execute("""
-                                SELECT id, site_url FROM website
-                                WHERE id = ?
-                                                    """,(id,)))
-                                for id in sorted_ids]
 
-    unsorted_pages = [list(stats_db_cursor.execute("""
+    return id_with_keyword        
+
+def rank(id_list):
+    
+    neorank_list = list(neorank_db_cursor.execute("""
+                                    SELECT * FROM neorank                              
+                                    ORDER BY rank DESC"""))
+
+    sorted_ids = [rank[0] for rank in neorank_list
+                                 if rank[0] in id_intersection]
+
+    #i'm leaving the whole thing just to show it does actually work
+    # i don't really need to generate a tuple with the rank is its already sorted
+    # also list comprehension YESYESYESYSYESYESYES
+    rank_tuples = [neorank_db_cursor.execute("""
+                                    SELECT id, rank FROM neorank
+                                    WHERE id=?
+                                 """,(id,)).fetchall()[0] for id in sorted_ids]
+    return rank_tuples
+    
+id_with_any_keyword = [search(keyword) for keyword in keywords.split()]
+
+# woah intersection is so cool
+# this sets an array that has all the ids present in every keyword set
+id_intersection = list(set(id_with_any_keyword[0]).intersection(*id_with_any_keyword[1:]))
+
+sorted_pages = [stats_db_cursor.execute("""
                         SELECT id, site_url FROM website
                         WHERE id = ?
-                                            """,(id,)))
-                        for id in id_with_keyword]
+                        """,(rank_tuple[0],)).fetchall()[0] for rank_tuple in rank(id_intersection)]
 
-    # print(pages_with_keyword)                        
-    # print(id_with_keyword)
-    # print(sorted_ids)
-    print("all sites:")
-    sleep(1)
-    for site in stats_db_cursor.execute("SELECT * FROM website"):
-        print(site[1])
-        sleep(.005)
-        sys.stdout.write("\033[F")
-        sys.stdout.write("\033[K")
-    print("\n\n")
-
-    print("pre sort sites:")
-    sleep(1)
-    for page in unsorted_pages:
-        print(page[0][1])
-        sleep(.1)
-    print("\n\n")
-    print("search results:")
-    sleep(1)
-    for page in pages_with_keyword:
-        print(page[0][1])
-        sleep(.1)
-search(word=keyword)
+for page_tuple in sorted_pages:
+    print(page_tuple[1])
+    sleep(0.1)
