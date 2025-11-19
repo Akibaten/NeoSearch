@@ -37,7 +37,6 @@ def add_keyword(url, document_id):
     words = site_parser.text.translate(str.maketrans('', '', string.punctuation)).lower().split()
     # print(words)
     for word in words:
-        print(f"{word} : {document_id}")
         id_db_cursor.execute(
             """INSERT OR IGNORE INTO keyword_list(word,id) VALUES
                     (?, ?)""", (word,document_id)

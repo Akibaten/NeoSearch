@@ -30,11 +30,13 @@ def calc_neorank(site):
 
     global total_views
     global total_followers
-    
-    site_views = site[3] / total_views
+
+    #I convert views and followers to int here
+    # they should always be int but some weird edge cases idk
+    site_views = int(site[3]) / total_views
 
     print(site_views)
-    site_followers = site[4] / total_followers
+    site_followers = int(site[4]) / total_followers
     views_modifier = 1
     followers_modifier = 1
 
@@ -63,6 +65,4 @@ neorank_db_cursor.execute("""
     ORDER BY rank DESC;
                    """)
 
-#ADD A PRINT STATEMENT HERE TO LOOK AT THE ARRAY ITS BROKEN IDKDKDKDKDK
 neorank_db.commit()
-print(neorank_db_cursor.fetchall())
