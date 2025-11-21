@@ -1,28 +1,64 @@
-['https://neocities.org/site/foggybear42', 'https://neocities.org/site/troy-sucks', 'https://neocities.org/site/ninjaweb'] 
- https://neocities.org/site/foggybear42 
+['https://neocities.org/site/lilithdev', 'https://neocities.org/site/ninjaweb', 'https://neocities.org/site/catarinha']
+
+                                  https://neocities.org/site/lilithdev 
+
+                                  2031363 
+
+                                  1069 
  
- ['https://neocities.org/site/troy-sucks', 'https://neocities.org/site/ninjaweb', 'https://neocities.org/site/ventablack'] 
- https://neocities.org/site/troy-sucks 
+
+                                    0%|▏                                              | 1/250 [00:00<01:12,  3.44it/s]['https://neocities.org/site/ninjaweb', 'https://neocities.org/site/catarinha', 'https://neocities.org/site/allyratworld']
+
+                                  https://neocities.org/site/ninjaweb 
+
+                                  393273 
+
+                                  488 
  
- ['https://neocities.org/site/ninjaweb', 'https://neocities.org/site/ventablack', 'https://neocities.org/site/ordainedmotion'] 
- https://neocities.org/site/ninjaweb 
+
+                                    1%|▍                                              | 2/250 [00:00<02:03,  2.01it/s]['https://neocities.org/site/catarinha', 'https://neocities.org/site/allyratworld', 'https://neocities.org/site/vertpush']
+
+                                  https://neocities.org/site/catarinha 
+
+                                  831391 
+
+                                  1235 
  
- ['https://neocities.org/site/ventablack', 'https://neocities.org/site/ordainedmotion', 'https://neocities.org/site/soapbubbleseal'] 
- https://neocities.org/site/ventablack 
+
+                                    1%|▌                                              | 3/250 [00:01<02:04,  1.98it/s]['https://neocities.org/site/allyratworld', 'https://neocities.org/site/vertpush', 'https://neocities.org/site/nomnomnami']
+
+                                  https://neocities.org/site/allyratworld 
+
+                                  2925219 
+
+                                  806 
  
- ['https://neocities.org/site/ordainedmotion', 'https://neocities.org/site/soapbubbleseal', 'https://neocities.org/site/feelingmachine'] 
- https://neocities.org/site/ordainedmotion 
+
+                                    2%|▊                                              | 4/250 [00:01<01:28,  2.78it/s]['https://neocities.org/site/vertpush', 'https://neocities.org/site/nomnomnami', 'https://neocities.org/site/olliveen']
+
+                                  https://neocities.org/site/vertpush 
+
+                                  1358392 
+
+                                  703 
  
- ['https://neocities.org/site/soapbubbleseal', 'https://neocities.org/site/feelingmachine', 'https://neocities.org/site/petrapixel'] 
- https://neocities.org/site/soapbubbleseal 
+
+                                    2%|▉                                              | 5/250 [00:02<01:56,  2.10it/s]['https://neocities.org/site/nomnomnami', 'https://neocities.org/site/olliveen', 'https://neocities.org/site/chattable']
+
+                                  https://neocities.org/site/nomnomnami 
+
+                                  2791733 
+
+                                  613 
  
- ['https://neocities.org/site/feelingmachine', 'https://neocities.org/site/petrapixel', 'https://neocities.org/site/bisha'] 
- https://neocities.org/site/feelingmachine 
+
+                                    2%|█▏                                             | 6/250 [00:02<01:54,  2.12it/s]['https://neocities.org/site/olliveen', 'https://neocities.org/site/chattable', 'https://neocities.org/site/lopster']
+
+                                  https://neocities.org/site/olliveen 
+
+                                  1498462 
+
+                                  1242 
  
- ['https://neocities.org/site/petrapixel', 'https://neocities.org/site/bisha', 'https://neocities.org/site/melonking'] 
- https://neocities.org/site/petrapixel 
- 
- ['https://neocities.org/site/bisha', 'https://neocities.org/site/melonking', 'https://neocities.org/site/sweetheartmemory'] 
- https://neocities.org/site/bisha 
- 
- 
+
+                                    3%|█▎                                             | 7/250 [00:03<02:10,  1.86it/s]
