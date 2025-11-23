@@ -94,6 +94,8 @@ class KeywordSpider(scrapy.Spider):
                  INSERT INTO site_words(site_id,word_id)
                  VALUES (?,?)                            
                                          """,(site_id,word_id))
+        word_id_db.commit()
+        site_words_db.commit()
                                     
 
                           
@@ -122,5 +124,12 @@ crawler.crawl(KeywordSpider,site_list=site_lists[2])
 crawler.crawl(KeywordSpider,site_list=site_lists[3])
 
 crawler.start()
+
+word_id_db.commit()
+site_words_db.commit()
+
+stats_db.close()
+word_id_db.close()
+site_words_db.close()
 
 print(site_words_db_cursor.execute("SELECT * FROM site_words").fetchall())
