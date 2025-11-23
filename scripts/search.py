@@ -6,8 +6,8 @@ import os
 stats_db = sqlite3.connect("../data/site_stats.db")
 stats_db_cursor = stats_db.cursor()
 
-id_db = sqlite3.connect("../data/keyword_id.db")
-id_db_cursor = id_db.cursor()
+site_words_db = sqlite3.connect("../data/site_words.db")
+site_words_db_cursor = id_db.cursor()
 
 neorank_db = sqlite3.connect("../data/neorank.db")
 neorank_db_cursor = neorank_db.cursor()

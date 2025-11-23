@@ -59,10 +59,4 @@ neorank_db.execute("""
     UPDATE neorank SET rank=rank*(1/?)
                    """, (normalizer,))
 
-#order the list descending
-neorank_db_cursor.execute("""
-    SELECT * FROM neorank
-    ORDER BY rank DESC;
-                   """)
-
 neorank_db.commit()
