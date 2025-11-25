@@ -27,22 +27,17 @@ def search(*args):
     #converts keywords to their ids
     keywords_as_ids = [word_id_db_cursor.execute("""
                         SELECT id FROM word_id_list WHERE word=?""",(word,)).fetchone() for word in keywords]
+    keywords_as_ids = tuple([id[0] for id in keywords_as_ids])
 
-    #now we get to some cool stuff
-    #so I should and do plan to move to postgresql but right now i'm using sql
-    #this is interesting though because when I iterate over keywords,
-    #I can add to a sql query string before executing it which I thought was interesting
-    
-    #the initial string
-    query_string = "SELECT site_id FROM site_words WHERE word_id = ?"
+    placeholders = ",".join("?" * len(keywords_as_ids))
 
-    #iterate to create query it skips the first id as that ? was already aded in query_string
-    for id in keywords_as_ids[1:]:
-        query_string = f"{query_string} AND word_id = ?"
-
-    keywords_as_ids = tuple(chain.from_iterable(keywords_as_ids))
-    
-    site_ids = [int(site_id[0]) for site_id in site_words_db_cursor.execute(query_string, keywords_as_ids).fetchall()]
+    query = f"""SELECT site_id
+                FROM site_words
+                WHERE word_id IN ({placeholders})
+                GROUP BY site_id
+                HAVING COUNT(DISTINCT word_id) = {len(keywords_as_ids)}"""
+                
+    site_ids = [int(site_id[0]) for site_id in site_words_db_cursor.execute(query, keywords_as_ids).fetchall()]
 
     return site_ids
     
@@ -51,7 +46,7 @@ def rank(id_list):
     site_neorank_list = []
 
     #creates a queries with a ton of ? = to the number of elements in id_list
-    placeholders = ','.join('?' * len(id_list))
+    placeholders = ",".join("?" * len(id_list))
 
 
     neorank_db_cursor.execute("ATTACH DATABASE '../data/site_stats.db' AS site_stats")
