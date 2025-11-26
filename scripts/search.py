@@ -3,6 +3,7 @@ import sys, getopt
 from time import sleep
 import os
 from itertools import chain
+import string
 
 stats_db = sqlite3.connect("../data/site_stats.db")
 stats_db_cursor = stats_db.cursor()
@@ -17,7 +18,8 @@ neorank_db = sqlite3.connect("../data/neorank.db")
 neorank_db_cursor = neorank_db.cursor()
 
 #strictly for passing keyword argument from command line
-keywords = sys.argv[1].split()
+# makes keywords lowercase and removes punctuation
+keywords = sys.argv[1].lower().translate(str.maketrans('', '', string.punctuation)).split()
 
 def search(*args):
     #deletes duplicate keywords
@@ -27,6 +29,8 @@ def search(*args):
     #converts keywords to their ids
     keywords_as_ids = [word_id_db_cursor.execute("""
                         SELECT id FROM word_id_list WHERE word=?""",(word,)).fetchone() for word in keywords]
+
+    # may have no results so this try checks that
     keywords_as_ids = tuple([id[0] for id in keywords_as_ids])
 
     placeholders = ",".join("?" * len(keywords_as_ids))
@@ -67,7 +71,11 @@ def rank(id_list):
 
     return ids_ranked
     
-site_ids = search(*keywords)
-ids_ranked = rank(site_ids)
-for site in ids_ranked[:]:
-    print(site[3])
+#a search may have no results. In that case this breaks out of everything and says no results
+try:
+    site_ids = search(*keywords)
+    ids_ranked = rank(site_ids)
+    for site in ids_ranked[:]:
+        print(site[3])
+except:
+    print("No results found :( maybe try a different search >w<")

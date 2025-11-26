@@ -78,6 +78,9 @@ class KeywordSpider(scrapy.Spider):
         # if it is than that id is given to the 
         for word in word_set:
 
+            #makes each word lowercase and removes punctuation            
+            word = word.lower().translate(str.maketrans('', '', string.punctuation))
+
             #tries to insert
             word_id_db_cursor.execute("""
                 INSERT OR IGNORE INTO word_id_list(word)
