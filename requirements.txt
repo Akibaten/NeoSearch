@@ -3,7 +3,6 @@ aiohttp==3.12.7
 aiosignal==1.3.2
 annotated-types==0.7.0
 anyio==3.7.1
-ase==3.26.0
 asgiref==3.8.1
 attrs==25.3.0
 Automat==25.4.16
@@ -16,12 +15,11 @@ certifi==2025.4.26
 cffi==2.0.0
 chardet==5.2.0
 charset-normalizer==3.4.2
-chroma-hnswlib==0.7.3
-chromadb==0.4.18
+chroma-hnswlib
+chromadb
 click==8.2.1
 coloredlogs==15.0.1
 constantly==23.10.4
-contourpy==1.3.3
 cryptography==46.0.3
 cssselect==1.3.0
 cycler==0.12.1
@@ -69,14 +67,13 @@ jsonpatch==1.33
 jsonpointer==3.0.0
 kiwisolver==1.4.9
 kubernetes==32.0.1
-langchain==0.0.340
+langchain
 langsmith==0.0.92
 limits==5.6.0
 lxml==4.9.3
 markdown-it-py==3.0.0
 MarkupSafe==3.0.3
 marshmallow==3.26.1
-matplotlib==3.10.6
 mdurl==0.1.2
 mem0ai==0.1.112
 mmh3==5.1.0
@@ -85,7 +82,7 @@ multidict==6.4.4
 mypy_extensions==1.1.0
 numpy==1.26.4
 oauthlib==3.2.2
-onnxruntime==1.22.0
+onnxruntime
 openai==1.93.0
 opentelemetry-api==1.33.1
 opentelemetry-exporter-otlp-proto-common==1.33.1
@@ -122,7 +119,6 @@ python-dateutil==2.9.0.post0
 python-dotenv==1.1.0
 pytz==2025.2
 PyYAML==6.0.1
-qdrant-client==1.14.3
 queuelib==1.8.0
 regex==2024.11.6
 requests==2.31.0
