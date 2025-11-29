@@ -25,19 +25,22 @@ limiter = Limiter(
 )
 
 @app.route("/search")
-@limiter.limit("10 per minute")
+
 def search():
+
+    #NOTE all paths with /data/ are pathing to the render persistent disk
+    # if you want to run locally just switch this from /data/ to data/ no starting slash
     
-    stats_db = sqlite3.connect("data/site_stats.db")
+    stats_db = sqlite3.connect("/data/site_stats.db")
     stats_db_cursor = stats_db.cursor()
 
-    site_words_db = sqlite3.connect("data/site_words.db")
+    site_words_db = sqlite3.connect("/data/site_words.db")
     site_words_db_cursor = site_words_db.cursor()
 
-    word_id_db = sqlite3.connect("data/word_id.db")
+    word_id_db = sqlite3.connect("/data/word_id.db")
     word_id_db_cursor = word_id_db.cursor()
 
-    neorank_db = sqlite3.connect("data/neorank.db")
+    neorank_db = sqlite3.connect("/data/neorank.db")
     neorank_db_cursor = neorank_db.cursor()
 
     #gets keywords for query
@@ -70,7 +73,7 @@ def search():
     placeholders = ",".join("?" * len(site_ids))
 
 
-    neorank_db_cursor.execute("ATTACH DATABASE 'data/site_stats.db' AS site_stats")
+    neorank_db_cursor.execute("ATTACH DATABASE '/data/site_stats.db' AS site_stats")
 
     
     
