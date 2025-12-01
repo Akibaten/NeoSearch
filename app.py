@@ -19,7 +19,7 @@ app = Flask(__name__)
 CORS(app, origins=[
     "http://localhost:8000",
     "http://127.0.0.1:8000",
-    "https://searchenocities.neocities.org"
+    "https://searchneocities.neocities.org"
 ])
 
 limiter = Limiter(
