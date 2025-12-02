@@ -10,10 +10,6 @@ import os
 from itertools import chain
 import string
 
-#strictly for passing keyword argument from command line
-# makes keywords lowercase and removes punctuation
-# keywords = sys.argv[1].lower().translate(str.maketrans('', '', string.punctuation)).split()
-
 app = Flask(__name__)
 
 CORS(app, origins=[
@@ -32,19 +28,19 @@ limiter = Limiter(
 
 def search():
 
-    #NOTE all paths with /data/ are pathing to the render persistent disk
-    # if you want to run locally just switch this from /data/ to data/ no starting slash
-    
-    stats_db = sqlite3.connect("/data/site_stats.db")
+    #NOTE all paths with data/ are pathing to the render persistent disk mounted in the same directory as app.py
+    # this means that local files and the server files have the same path
+   
+    stats_db = sqlite3.connect("data/site_stats.db")
     stats_db_cursor = stats_db.cursor()
 
-    site_words_db = sqlite3.connect("/data/site_words.db")
+    site_words_db = sqlite3.connect("data/site_words.db")
     site_words_db_cursor = site_words_db.cursor()
 
-    word_id_db = sqlite3.connect("/data/word_id.db")
+    word_id_db = sqlite3.connect("data/word_id.db")
     word_id_db_cursor = word_id_db.cursor()
 
-    neorank_db = sqlite3.connect("/data/neorank.db")
+    neorank_db = sqlite3.connect("data/neorank.db")
     neorank_db_cursor = neorank_db.cursor()
 
     #gets keywords for query
@@ -77,7 +73,7 @@ def search():
     placeholders = ",".join("?" * len(site_ids))
 
 
-    neorank_db_cursor.execute("ATTACH DATABASE '/data/site_stats.db' AS site_stats")
+    neorank_db_cursor.execute("ATTACH DATABASE 'data/site_stats.db' AS site_stats")
 
     
     
