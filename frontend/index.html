@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The web site of searchneocities</title>
+		<!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+		<link href="/css/index.css" rel="stylesheet" type="text/css" media="all">
+		<script src="/js/search.js"></script>
+	</head>
+	<body>
+		<div id="search-page">
+			<h1 style="text-align:center">
+				NeoSearch
+			</h1>
+			<input type="text" id="search-bar-input">
+			<input type="submit" id="search-button" onclick="
+					let query = document.getElementById('search-bar-input').value;
+					window.location.href = `/search?q=${query}&page=1`" value="Search">
+
+			<!-- adds event for pressing enter in the search bar -->
+			<script>
+				var input = document.getElementById("search-bar-input");
+				input.addEventListener("keypress", function(event) {
+					if (event.key === "Enter") {
+						event.preventDefault();
+						document.getElementById("search-button").click();
+					}
+					});
+			</script>
+		</div>
+	</body>
+</html>
