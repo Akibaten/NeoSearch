@@ -62,7 +62,7 @@ def rank(id_list):
     query = f"""WITH id_rank_cte AS(
                 SELECT id, rank FROM neorank
                 WHERE id IN ({placeholders}))
-                SELECT id_rank_cte.id, id_rank_cte.rank, site_stats.website.id, site_stats.website.site_url
+                SELECT id_rank_cte.id, id_rank_cte.rank, site_stats.website.id, site_stats.website.site_url, site_stats.website.profile_url, site_title
                 FROM id_rank_cte
                 LEFT JOIN site_stats.website ON id_rank_cte.id = site_stats.website.id
                 ORDER BY id_rank_cte.rank DESC"""
@@ -76,6 +76,7 @@ try:
     site_ids = search(*keywords)
     ids_ranked = rank(site_ids)
     for site in ids_ranked[:]:
-        print(site[3])
-except:
+        print(f"{site[3]} {site[4]} {site[5]}")
+except Exception as e:
+    print(e)
     print("No results found :( maybe try a different search >w<")

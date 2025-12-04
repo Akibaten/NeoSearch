@@ -33,10 +33,10 @@ def calc_neorank(site):
 
     #I convert views and followers to int here
     # they should always be int but some weird edge cases idk
-    site_views = int(site[3]) / total_views
+    site_views = int(site[4]) / total_views
 
     print(site_views)
-    site_followers = int(site[4]) / total_followers
+    site_followers = int(site[5]) / total_followers
     views_modifier = 1
     followers_modifier = 1
 

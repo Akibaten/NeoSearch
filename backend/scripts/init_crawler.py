@@ -30,6 +30,12 @@ progressbar = tqdm(range(number_of_sites_to_crawl))
 stats_db = sqlite3.connect("../data/site_stats.db")
 stats_db_cursor = stats_db.cursor()
 
+#creates stats database
+stats_db_cursor.execute(
+    """CREATE TABLE IF NOT EXISTS website(id, site_url, profile_url, site_title, views, followers, time_since_update)""")
+
+
+
 #creates deque queue for sites crawler needs to visit and appends first url
 sites_to_visit = deque()
 sites_to_visit.append(init_profile)
@@ -50,7 +56,7 @@ class NeocitiesSpider(scrapy.Spider):
 
     handle_httpstatus_list = [404]
     
-    async def start(self):
+    def start_requests(self):
 
         global crawlcounter
         
@@ -76,11 +82,23 @@ class NeocitiesSpider(scrapy.Spider):
 
         
         try:
+            
+            """
+            rules for finding elements for stats
+            NOTE:
+            the title string omits the first 12 characters as they are always "Neocities - "
+            time since the last update is stored as unix epoch time
+            time.time() gets the time since epoch now and subtracts to find time since now
+            this is in seconds truncated to int
+            """
+            
             profile_views = int(response.css("div.stat strong::text").getall()[0].replace(',',''))
             profile_followers = int(response.css("div.stat strong::text").getall()[1].replace(',',''))
             user_site_url = response.css("p.site-url a::attr(href)").get()
-
+            user_site_title = response.css("title::text").get()[12:]
+            time_since_update = int(time.time() - int(response.css("div.stat strong::attr(data-timestamp)").get())) 
             sites_visited.add(sites_to_visit[0])
+
             
             for link in response.css("div.following-list a::attr(href)").getall()[1:-2]:
                 if (f"https://neocities.org{link}" not in sites_visited and
@@ -93,7 +111,9 @@ class NeocitiesSpider(scrapy.Spider):
                             site_url= user_site_url,
                             profile_url= sites_to_visit[0],
                             views = profile_views,
-                            followers=profile_followers)
+                            site_title = user_site_title,
+                            followers=profile_followers,
+                            time_since_update = time_since_update)
         
             if crawlcounter <= number_of_sites_to_crawl:
                 crawlcounter += 1
@@ -108,7 +128,8 @@ class NeocitiesSpider(scrapy.Spider):
                 sites_to_visit.popleft()
                 try:
                     yield scrapy.Request(url=sites_to_visit[0], callback=self.parse)
-                except:
+                except Exception as e:
+                    self.logger.error(f"Error in inner try: {e}")
                     sites_visited.add(sites_to_visit[0])
                     sites_to_visit.popleft()
                     sites_to_visit.popleft()
@@ -116,22 +137,20 @@ class NeocitiesSpider(scrapy.Spider):
 
                     
         except Exception as e:
+            self.logger.error(f"Error in inner try: {e}")
             sites_visited.add(sites_to_visit[0])
             sites_to_visit.popleft()
             sites_to_visit.popleft()
             yield scrapy.Request(url=sites_to_visit[1], callback=self.parse)
             
-def add_to_stats_db(id,site_url,profile_url,views,followers):
+def add_to_stats_db(id,site_url,profile_url, site_title, views,followers,time_since_update):
 
     global crawlcounter
     
     stats_db_cursor.execute(
-        """CREATE TABLE IF NOT EXISTS website(id, site_url, profile_url, views, followers)""")
-
-    stats_db_cursor.execute(
         """INSERT INTO website VALUES
-                (?,?, ?, ?, ?)"""
-    , (id,site_url, profile_url, views, followers))
+                (?,?, ?, ?, ?, ?,?)"""
+    , (id,site_url, profile_url, site_title, views, followers,time_since_update))
     stats_db.commit()
 
 crawler = CrawlerProcess(settings={

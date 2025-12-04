@@ -61,7 +61,7 @@ class KeywordSpider(scrapy.Spider):
         super().__init__(*args, **kwargs)
         self.urls = [url for url in site_list]
 
-    async def start(self):
+    def start_requests(self):
         for url in self.urls:
             yield scrapy.Request(url=str(url[1]), callback=self.parse, cb_kwargs={'site_id': url[0]})
      
@@ -131,8 +131,8 @@ crawler.start()
 word_id_db.commit()
 site_words_db.commit()
 
+print(site_words_db_cursor.execute("SELECT * FROM site_words").fetchall())
+
 stats_db.close()
 word_id_db.close()
 site_words_db.close()
-
-print(site_words_db_cursor.execute("SELECT * FROM site_words").fetchall())

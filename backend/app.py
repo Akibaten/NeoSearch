@@ -82,14 +82,17 @@ def search():
     sql_query = f"""WITH id_rank_cte AS(
                 SELECT id, rank FROM neorank
                 WHERE id IN ({placeholders}))
-                SELECT id_rank_cte.id, id_rank_cte.rank, site_stats.website.id, site_stats.website.site_url
+                SELECT id_rank_cte.id, id_rank_cte.rank, site_stats.website.id, site_stats.website.site_url, site_stats.website.profile_url,site_stats.website.site_title
                 FROM id_rank_cte
                 LEFT JOIN site_stats.website ON id_rank_cte.id = site_stats.website.id
                 ORDER BY id_rank_cte.rank DESC"""
+
                 
     ids_ranked = neorank_db_cursor.execute(sql_query, tuple(site_ids)).fetchall()
     #returns json of array with all sites in order
-    return {'results': [site[3] for site in ids_ranked]}
+    return {'site_urls': [site[3] for site in ids_ranked],
+            'profile_urls': [site[4] for site in ids_ranked],
+            'site_title': [site[5] for site in ids_ranked]}
 
     stats_db.close()
     site_words_db.close()
