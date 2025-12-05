@@ -62,7 +62,7 @@ def rank(id_list):
     query = f"""WITH id_rank_cte AS(
                 SELECT id, rank FROM neorank
                 WHERE id IN ({placeholders}))
-                SELECT id_rank_cte.id, id_rank_cte.rank, site_stats.website.id, site_stats.website.site_url, site_stats.website.profile_url, site_title
+                SELECT id_rank_cte.id, id_rank_cte.rank, site_stats.website.id, site_stats.website.site_url, site_stats.website.profile_url, site_stats.website.site_title, site_stats.website.time_since_update
                 FROM id_rank_cte
                 LEFT JOIN site_stats.website ON id_rank_cte.id = site_stats.website.id
                 ORDER BY id_rank_cte.rank DESC"""

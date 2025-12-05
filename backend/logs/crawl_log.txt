@@ -7,7 +7,7 @@
                                   1110 
  
 
-                                   10%|████▊                                           | 1/10 [00:00<00:04,  2.03it/s]['https://neocities.org/site/nomnomnami', 'https://neocities.org/site/lopster', 'https://neocities.org/site/velvetblue']
+                                    0%|                                              | 1/1000 [00:00<07:06,  2.34it/s]['https://neocities.org/site/nomnomnami', 'https://neocities.org/site/lopster', 'https://neocities.org/site/velvetblue']
 
                                   https://neocities.org/site/nomnomnami 
 
@@ -16,7 +16,7 @@
                                   644 
  
 
-                                   20%|█████████▌                                      | 2/10 [00:00<00:02,  3.17it/s]['https://neocities.org/site/lopster', 'https://neocities.org/site/velvetblue', 'https://neocities.org/site/olliveen']
+                                    0%|                                              | 2/1000 [00:00<04:44,  3.50it/s]['https://neocities.org/site/lopster', 'https://neocities.org/site/velvetblue', 'https://neocities.org/site/olliveen']
 
                                   https://neocities.org/site/lopster 
 
@@ -25,7 +25,7 @@
                                   534 
  
 
-                                   30%|██████████████▍                                 | 3/10 [00:01<00:02,  2.97it/s]['https://neocities.org/site/velvetblue', 'https://neocities.org/site/olliveen', 'https://neocities.org/site/ninjaweb']
+                                    0%|▏                                             | 3/1000 [00:00<04:30,  3.68it/s]['https://neocities.org/site/velvetblue', 'https://neocities.org/site/olliveen', 'https://neocities.org/site/ninjaweb']
 
                                   https://neocities.org/site/velvetblue 
 
@@ -34,7 +34,7 @@
                                   1376 
  
 
-                                   40%|███████████████████▏                            | 4/10 [00:01<00:01,  3.30it/s]['https://neocities.org/site/olliveen', 'https://neocities.org/site/ninjaweb', 'https://neocities.org/site/catarinha']
+                                    0%|▏                                             | 4/1000 [00:01<05:03,  3.28it/s]['https://neocities.org/site/olliveen', 'https://neocities.org/site/ninjaweb', 'https://neocities.org/site/catarinha']
 
                                   https://neocities.org/site/olliveen 
 
@@ -43,7 +43,7 @@
                                   1265 
  
 
-                                   50%|████████████████████████                        | 5/10 [00:01<00:01,  3.23it/s]['https://neocities.org/site/ninjaweb', 'https://neocities.org/site/catarinha', 'https://neocities.org/site/toribytez']
+                                    0%|▏                                             | 5/1000 [00:01<05:23,  3.07it/s]['https://neocities.org/site/ninjaweb', 'https://neocities.org/site/catarinha', 'https://neocities.org/site/toribytez']
 
                                   https://neocities.org/site/ninjaweb 
 
@@ -52,7 +52,7 @@
                                   498 
  
 
-                                   60%|████████████████████████████▊                   | 6/10 [00:01<00:01,  3.06it/s]['https://neocities.org/site/catarinha', 'https://neocities.org/site/toribytez', 'https://neocities.org/site/allyratworld']
+                                    1%|▎                                             | 6/1000 [00:01<04:59,  3.32it/s]['https://neocities.org/site/catarinha', 'https://neocities.org/site/toribytez', 'https://neocities.org/site/allyratworld']
 
                                   https://neocities.org/site/catarinha 
 
@@ -61,7 +61,7 @@
                                   1274 
  
 
-                                   70%|█████████████████████████████████▌              | 7/10 [00:02<00:00,  3.00it/s]['https://neocities.org/site/toribytez', 'https://neocities.org/site/allyratworld', 'https://neocities.org/site/lazer-bunny']
+                                    1%|▎                                             | 7/1000 [00:02<05:16,  3.14it/s]['https://neocities.org/site/toribytez', 'https://neocities.org/site/allyratworld', 'https://neocities.org/site/lazer-bunny']
 
                                   https://neocities.org/site/toribytez 
 
@@ -70,7 +70,7 @@
                                   237 
  
 
-                                   80%|██████████████████████████████████████▍         | 8/10 [00:02<00:00,  3.02it/s]['https://neocities.org/site/allyratworld', 'https://neocities.org/site/lazer-bunny', 'https://neocities.org/site/ventablack']
+                                    1%|▎                                             | 8/1000 [00:02<04:55,  3.36it/s]['https://neocities.org/site/allyratworld', 'https://neocities.org/site/lazer-bunny', 'https://neocities.org/site/ventablack']
 
                                   https://neocities.org/site/allyratworld 
 
@@ -79,7 +79,7 @@
                                   812 
  
 
-                                   90%|███████████████████████████████████████████▏    | 9/10 [00:03<00:00,  2.86it/s]['https://neocities.org/site/lazer-bunny', 'https://neocities.org/site/ventablack', 'https://neocities.org/site/ordainedmotion']
+                                    1%|▍                                             | 9/1000 [00:02<04:47,  3.45it/s]['https://neocities.org/site/lazer-bunny', 'https://neocities.org/site/ventablack', 'https://neocities.org/site/ordainedmotion']
 
                                   https://neocities.org/site/lazer-bunny 
 
@@ -88,4 +88,1165 @@
                                   1095 
  
 
-                                  100%|███████████████████████████████████████████████| 10/10 [00:03<00:00,  3.11it/s]
+                                    1%|▍                                            | 10/1000 [00:03<04:56,  3.34it/s]['https://neocities.org/site/ventablack', 'https://neocities.org/site/ordainedmotion', 'https://neocities.org/site/floralchai']
+
+                                  https://neocities.org/site/ventablack 
+
+                                  111177 
+
+                                  189 
+ 
+
+                                    1%|▍                                            | 11/1000 [00:03<04:48,  3.43it/s]['https://neocities.org/site/ordainedmotion', 'https://neocities.org/site/floralchai', 'https://neocities.org/site/philia995']
+
+                                  https://neocities.org/site/ordainedmotion 
+
+                                  184820 
+
+                                  207 
+ 
+
+                                    1%|▌                                            | 12/1000 [00:04<07:20,  2.24it/s]['https://neocities.org/site/floralchai', 'https://neocities.org/site/philia995', 'https://neocities.org/site/vertpush']
+
+                                  https://neocities.org/site/floralchai 
+
+                                  231296 
+
+                                  309 
+ 
+
+                                    1%|▌                                            | 13/1000 [00:04<08:10,  2.01it/s]['https://neocities.org/site/philia995', 'https://neocities.org/site/vertpush', 'https://neocities.org/site/ne0nbandit']
+
+                                  https://neocities.org/site/philia995 
+
+                                  180368 
+
+                                  689 
+ 
+
+                                    1%|▋                                            | 14/1000 [00:05<09:45,  1.68it/s]['https://neocities.org/site/vertpush', 'https://neocities.org/site/ne0nbandit', 'https://neocities.org/site/vidapon']
+
+                                  https://neocities.org/site/vertpush 
+
+                                  1372810 
+
+                                  711 
+ 
+
+                                    2%|▋                                            | 15/1000 [00:06<10:50,  1.51it/s]['https://neocities.org/site/ne0nbandit', 'https://neocities.org/site/vidapon', 'https://neocities.org/site/oudkee']
+
+                                  https://neocities.org/site/ne0nbandit 
+
+                                  894611 
+
+                                  1233 
+ 
+
+                                    2%|▋                                            | 16/1000 [00:06<10:38,  1.54it/s]['https://neocities.org/site/vidapon', 'https://neocities.org/site/oudkee', 'https://neocities.org/site/scott2']
+
+                                  https://neocities.org/site/vidapon 
+
+                                  1216512 
+
+                                  465 
+ 
+
+                                    2%|▊                                            | 17/1000 [00:07<09:35,  1.71it/s]['https://neocities.org/site/oudkee', 'https://neocities.org/site/scott2', 'https://neocities.org/site/burypink']
+
+                                  https://neocities.org/site/oudkee 
+
+                                  375961 
+
+                                  236 
+ 
+
+                                    2%|▊                                            | 18/1000 [00:07<09:04,  1.80it/s]['https://neocities.org/site/scott2', 'https://neocities.org/site/burypink', 'https://neocities.org/site/caitsith']
+
+                                  https://neocities.org/site/scott2 
+
+                                  247814 
+
+                                  134 
+ 
+
+                                    2%|▊                                            | 19/1000 [00:08<08:15,  1.98it/s]['https://neocities.org/site/burypink', 'https://neocities.org/site/caitsith', 'https://neocities.org/site/unicodeangel']
+
+                                  https://neocities.org/site/burypink 
+
+                                  643994 
+
+                                  240 
+ 
+
+                                    2%|▉                                            | 20/1000 [00:08<08:52,  1.84it/s]['https://neocities.org/site/caitsith', 'https://neocities.org/site/unicodeangel', 'https://neocities.org/site/hunipyon']
+
+                                  https://neocities.org/site/caitsith 
+
+                                  929402 
+
+                                  777 
+ 
+
+                                    2%|▉                                            | 21/1000 [00:09<09:08,  1.78it/s]['https://neocities.org/site/unicodeangel', 'https://neocities.org/site/hunipyon', 'https://neocities.org/site/cyberneticdryad']
+
+                                  https://neocities.org/site/unicodeangel 
+
+                                  8933460 
+
+                                  459 
+ 
+
+                                    2%|▉                                            | 22/1000 [00:10<08:57,  1.82it/s]['https://neocities.org/site/hunipyon', 'https://neocities.org/site/cyberneticdryad', 'https://neocities.org/site/bruisedgh0st']
+
+                                  https://neocities.org/site/hunipyon 
+
+                                  246199 
+
+                                  472 
+ 
+
+                                    2%|█                                            | 23/1000 [00:10<09:49,  1.66it/s]['https://neocities.org/site/cyberneticdryad', 'https://neocities.org/site/bruisedgh0st', 'https://neocities.org/site/kuroi']
+
+                                  https://neocities.org/site/cyberneticdryad 
+
+                                  615969 
+
+                                  323 
+ 
+
+                                    2%|█                                            | 24/1000 [00:11<09:15,  1.76it/s]['https://neocities.org/site/bruisedgh0st', 'https://neocities.org/site/kuroi', 'https://neocities.org/site/7nonsense']
+
+                                  https://neocities.org/site/bruisedgh0st 
+
+                                  454600 
+
+                                  832 
+ 
+
+                                    2%|█▏                                           | 25/1000 [00:12<10:33,  1.54it/s]['https://neocities.org/site/kuroi', 'https://neocities.org/site/7nonsense', 'https://neocities.org/site/humantooth']
+
+                                  https://neocities.org/site/kuroi 
+
+                                  14696 
+
+                                  330 
+ 
+
+                                    3%|█▏                                           | 26/1000 [00:12<10:41,  1.52it/s]['https://neocities.org/site/7nonsense', 'https://neocities.org/site/humantooth', 'https://neocities.org/site/chattable']
+
+                                  https://neocities.org/site/7nonsense 
+
+                                  835659 
+
+                                  348 
+ 
+
+                                    3%|█▏                                           | 27/1000 [00:13<09:22,  1.73it/s]['https://neocities.org/site/humantooth', 'https://neocities.org/site/chattable', 'https://neocities.org/site/nenrikido']
+
+                                  https://neocities.org/site/humantooth 
+
+                                  654212 
+
+                                  548 
+ 
+
+                                    3%|█▎                                           | 28/1000 [00:13<09:34,  1.69it/s]['https://neocities.org/site/chattable', 'https://neocities.org/site/nenrikido', 'https://neocities.org/site/frutigeraeroarchive']
+
+                                  https://neocities.org/site/chattable 
+
+                                  3317293 
+
+                                  220 
+ 
+
+                                    3%|█▎                                           | 29/1000 [00:14<09:47,  1.65it/s]['https://neocities.org/site/nenrikido', 'https://neocities.org/site/frutigeraeroarchive', 'https://neocities.org/site/moonpr1sm']
+
+                                  https://neocities.org/site/nenrikido 
+
+                                  1472179 
+
+                                  650 
+ 
+
+                                    3%|█▎                                           | 30/1000 [00:14<08:48,  1.84it/s]['https://neocities.org/site/frutigeraeroarchive', 'https://neocities.org/site/moonpr1sm', 'https://neocities.org/site/dimden']
+
+                                  https://neocities.org/site/frutigeraeroarchive 
+
+                                  16516817 
+
+                                  1993 
+ 
+
+                                    3%|█▍                                           | 31/1000 [00:15<09:20,  1.73it/s]['https://neocities.org/site/moonpr1sm', 'https://neocities.org/site/dimden', 'https://neocities.org/site/demonicpedigree']
+
+                                  https://neocities.org/site/moonpr1sm 
+
+                                  178698 
+
+                                  214 
+ 
+
+                                    3%|█▍                                           | 32/1000 [00:16<09:29,  1.70it/s]['https://neocities.org/site/dimden', 'https://neocities.org/site/demonicpedigree', 'https://neocities.org/site/decayedg1rl']
+
+                                  https://neocities.org/site/dimden 
+
+                                  2897469 
+
+                                  1570 
+ 
+
+                                    3%|█▍                                           | 33/1000 [00:17<13:10,  1.22it/s]['https://neocities.org/site/demonicpedigree', 'https://neocities.org/site/decayedg1rl', 'https://neocities.org/site/fizzsea']
+
+                                  https://neocities.org/site/demonicpedigree 
+
+                                  192704 
+
+                                  117 
+ 
+
+                                    3%|█▌                                           | 34/1000 [00:17<11:08,  1.45it/s]['https://neocities.org/site/decayedg1rl', 'https://neocities.org/site/fizzsea', 'https://neocities.org/site/astrossoundhell']
+
+                                  https://neocities.org/site/decayedg1rl 
+
+                                  413926 
+
+                                  334 
+ 
+
+                                    4%|█▌                                           | 35/1000 [00:18<10:40,  1.51it/s]['https://neocities.org/site/fizzsea', 'https://neocities.org/site/astrossoundhell', 'https://neocities.org/site/horrorgifs']
+
+                                  https://neocities.org/site/fizzsea 
+
+                                  567916 
+
+                                  204 
+ 
+
+                                    4%|█▌                                           | 36/1000 [00:18<09:32,  1.69it/s]['https://neocities.org/site/astrossoundhell', 'https://neocities.org/site/horrorgifs', 'https://neocities.org/site/uraincandy']
+
+                                  https://neocities.org/site/astrossoundhell 
+
+                                  514803 
+
+                                  183 
+ 
+
+                                    4%|█▋                                           | 37/1000 [00:19<08:42,  1.84it/s]['https://neocities.org/site/horrorgifs', 'https://neocities.org/site/uraincandy', 'https://neocities.org/site/fulvern']
+
+                                  https://neocities.org/site/horrorgifs 
+
+                                  2481344 
+
+                                  1421 
+ 
+
+                                    4%|█▋                                           | 38/1000 [00:20<10:25,  1.54it/s]['https://neocities.org/site/uraincandy', 'https://neocities.org/site/fulvern', 'https://neocities.org/site/ninacti0n']
+
+                                  https://neocities.org/site/uraincandy 
+
+                                  73423 
+
+                                  40 
+ 
+
+                                    4%|█▊                                           | 39/1000 [00:20<08:53,  1.80it/s]['https://neocities.org/site/fulvern', 'https://neocities.org/site/ninacti0n', 'https://neocities.org/site/aidiapink']
+
+                                  https://neocities.org/site/fulvern 
+
+                                  329032 
+
+                                  103 
+ 
+
+                                    4%|█▊                                           | 40/1000 [00:20<08:02,  1.99it/s]['https://neocities.org/site/ninacti0n', 'https://neocities.org/site/aidiapink', 'https://neocities.org/site/corru']
+
+                                  https://neocities.org/site/ninacti0n 
+
+                                  565792 
+
+                                  1366 
+ 
+
+                                    4%|█▊                                           | 41/1000 [00:21<09:49,  1.63it/s]['https://neocities.org/site/aidiapink', 'https://neocities.org/site/corru', 'https://neocities.org/site/theabsoluterealm']
+
+                                  https://neocities.org/site/aidiapink 
+
+                                  270562 
+
+                                  121 
+ 
+
+                                    4%|█▉                                           | 42/1000 [00:22<09:29,  1.68it/s]['https://neocities.org/site/corru', 'https://neocities.org/site/theabsoluterealm', 'https://neocities.org/site/clownfredzone']
+
+                                  https://neocities.org/site/corru 
+
+                                  6145415 
+
+                                  686 
+ 
+
+                                    4%|█▉                                           | 43/1000 [00:22<09:34,  1.67it/s]['https://neocities.org/site/theabsoluterealm', 'https://neocities.org/site/clownfredzone', 'https://neocities.org/site/prismatictigers']
+
+                                  https://neocities.org/site/theabsoluterealm 
+
+                                  1102412 
+
+                                  603 
+ 
+
+                                    4%|█▉                                           | 44/1000 [00:23<08:47,  1.81it/s]['https://neocities.org/site/clownfredzone', 'https://neocities.org/site/prismatictigers', 'https://neocities.org/site/asteroooo']
+
+                                  https://neocities.org/site/clownfredzone 
+
+                                  1279737 
+
+                                  294 
+ 
+
+                                    4%|██                                           | 45/1000 [00:23<08:24,  1.89it/s]['https://neocities.org/site/prismatictigers', 'https://neocities.org/site/asteroooo', 'https://neocities.org/site/pearliasystem']
+
+                                  https://neocities.org/site/prismatictigers 
+
+                                  1059474 
+
+                                  774 
+ 
+
+                                    5%|██                                           | 46/1000 [00:24<08:44,  1.82it/s]['https://neocities.org/site/asteroooo', 'https://neocities.org/site/pearliasystem', 'https://neocities.org/site/transring']
+
+                                  https://neocities.org/site/asteroooo 
+
+                                  35840 
+
+                                  66 
+ 
+
+                                    5%|██                                           | 47/1000 [00:25<08:41,  1.83it/s]['https://neocities.org/site/pearliasystem', 'https://neocities.org/site/transring', 'https://neocities.org/site/iwishyouroses']
+
+                                  https://neocities.org/site/pearliasystem 
+
+                                  119926 
+
+                                  132 
+ 
+
+                                    5%|██▏                                          | 48/1000 [00:25<08:49,  1.80it/s]['https://neocities.org/site/transring', 'https://neocities.org/site/iwishyouroses', 'https://neocities.org/site/strawbebby228']
+
+                                  https://neocities.org/site/transring 
+
+                                  3581561 
+
+                                  246 
+ 
+
+                                    5%|██▏                                          | 49/1000 [00:26<08:14,  1.92it/s]['https://neocities.org/site/iwishyouroses', 'https://neocities.org/site/strawbebby228', 'https://neocities.org/site/garf']
+
+                                  https://neocities.org/site/iwishyouroses 
+
+                                  96959 
+
+                                  142 
+ 
+
+                                    5%|██▎                                          | 50/1000 [00:26<08:48,  1.80it/s]['https://neocities.org/site/strawbebby228', 'https://neocities.org/site/garf', 'https://neocities.org/site/win1999']
+
+                                  https://neocities.org/site/strawbebby228 
+
+                                  583986 
+
+                                  724 
+ 
+
+                                    5%|██▎                                          | 51/1000 [00:27<08:30,  1.86it/s]['https://neocities.org/site/garf', 'https://neocities.org/site/win1999', 'https://neocities.org/site/madukamagica']
+
+                                  https://neocities.org/site/garf 
+
+                                  438568 
+
+                                  234 
+ 
+
+                                    5%|██▎                                          | 52/1000 [00:27<08:16,  1.91it/s]['https://neocities.org/site/win1999', 'https://neocities.org/site/madukamagica', 'https://neocities.org/site/dinpixels']
+
+                                  https://neocities.org/site/win1999 
+
+                                  346923 
+
+                                  156 
+ 
+
+                                    5%|██▍                                          | 53/1000 [00:28<08:45,  1.80it/s]['https://neocities.org/site/madukamagica', 'https://neocities.org/site/dinpixels', 'https://neocities.org/site/stringsattached']
+
+                                  https://neocities.org/site/madukamagica 
+
+                                  121423 
+
+                                  196 
+ 
+
+                                    5%|██▍                                          | 54/1000 [00:28<08:35,  1.84it/s]['https://neocities.org/site/dinpixels', 'https://neocities.org/site/stringsattached', 'https://neocities.org/site/363787']
+
+                                  https://neocities.org/site/dinpixels 
+
+                                  142433 
+
+                                  106 
+ 
+
+                                    6%|██▍                                          | 55/1000 [00:29<07:48,  2.02it/s]['https://neocities.org/site/stringsattached', 'https://neocities.org/site/363787', 'https://neocities.org/site/arataka']
+
+                                  https://neocities.org/site/stringsattached 
+
+                                  2863741 
+
+                                  128 
+ 
+
+                                    6%|██▌                                          | 56/1000 [00:29<07:07,  2.21it/s]['https://neocities.org/site/363787', 'https://neocities.org/site/arataka', 'https://neocities.org/site/temstuff']
+
+                                  https://neocities.org/site/363787 
+
+                                  122798 
+
+                                  105 
+ 
+
+                                    6%|██▌                                          | 57/1000 [00:29<06:50,  2.29it/s]['https://neocities.org/site/arataka', 'https://neocities.org/site/temstuff', 'https://neocities.org/site/diluculo']
+
+                                  https://neocities.org/site/arataka 
+
+                                  104108 
+
+                                  241 
+ 
+
+                                    6%|██▌                                          | 58/1000 [00:30<08:06,  1.94it/s]['https://neocities.org/site/temstuff', 'https://neocities.org/site/diluculo', 'https://neocities.org/site/crystalsweb']
+
+                                  https://neocities.org/site/temstuff 
+
+                                  186712 
+
+                                  188 
+ 
+
+                                    6%|██▋                                          | 59/1000 [00:31<07:24,  2.12it/s]['https://neocities.org/site/diluculo', 'https://neocities.org/site/crystalsweb', 'https://neocities.org/site/rhinedottir']
+
+                                  https://neocities.org/site/diluculo 
+
+                                  388597 
+
+                                  171 
+ 
+
+                                    6%|██▋                                          | 60/1000 [00:31<08:17,  1.89it/s]['https://neocities.org/site/crystalsweb', 'https://neocities.org/site/rhinedottir', 'https://neocities.org/site/ismile']
+
+                                  https://neocities.org/site/crystalsweb 
+
+                                  52218 
+
+                                  119 
+ 
+
+                                    6%|██▋                                          | 61/1000 [00:32<08:09,  1.92it/s]['https://neocities.org/site/rhinedottir', 'https://neocities.org/site/ismile', 'https://neocities.org/site/lunamilk']
+
+                                  https://neocities.org/site/rhinedottir 
+
+                                  80583 
+
+                                  168 
+ 
+
+                                    6%|██▊                                          | 62/1000 [00:32<09:05,  1.72it/s]['https://neocities.org/site/ismile', 'https://neocities.org/site/lunamilk', 'https://neocities.org/site/comfort']
+
+                                  https://neocities.org/site/ismile 
+
+                                  117605 
+
+                                  74 
+ 
+
+                                    6%|██▊                                          | 63/1000 [00:33<08:16,  1.89it/s]['https://neocities.org/site/lunamilk', 'https://neocities.org/site/comfort', 'https://neocities.org/site/softwareangel']
+
+                                  https://neocities.org/site/lunamilk 
+
+                                  61066 
+
+                                  72 
+ 
+
+                                    6%|██▉                                          | 64/1000 [00:33<07:37,  2.04it/s]['https://neocities.org/site/comfort', 'https://neocities.org/site/softwareangel', 'https://neocities.org/site/scarecat']
+
+                                  https://neocities.org/site/comfort 
+
+                                  249149 
+
+                                  218 
+ 
+
+                                    6%|██▉                                          | 65/1000 [00:34<08:16,  1.88it/s]['https://neocities.org/site/softwareangel', 'https://neocities.org/site/scarecat', 'https://neocities.org/site/ballonlea']
+
+                                  https://neocities.org/site/softwareangel 
+
+                                  109179 
+
+                                  213 
+ 
+
+                                    7%|██▉                                          | 66/1000 [00:34<08:10,  1.91it/s]['https://neocities.org/site/scarecat', 'https://neocities.org/site/ballonlea', 'https://neocities.org/site/quaggos']
+
+                                  https://neocities.org/site/scarecat 
+
+                                  93470 
+
+                                  113 
+ 
+
+                                    7%|███                                          | 67/1000 [00:35<07:38,  2.03it/s]['https://neocities.org/site/ballonlea', 'https://neocities.org/site/quaggos', 'https://neocities.org/site/sleepy-sage']
+
+                                  https://neocities.org/site/ballonlea 
+
+                                  1655603 
+
+                                  357 
+ 
+
+                                    7%|███                                          | 68/1000 [00:35<08:13,  1.89it/s]['https://neocities.org/site/quaggos', 'https://neocities.org/site/sleepy-sage', 'https://neocities.org/site/wildrose']
+
+                                  https://neocities.org/site/quaggos 
+
+                                  182807 
+
+                                  61 
+ 
+
+                                    7%|███                                          | 69/1000 [00:36<07:19,  2.12it/s]['https://neocities.org/site/sleepy-sage', 'https://neocities.org/site/wildrose', 'https://neocities.org/site/loveweb']
+
+                                  https://neocities.org/site/sleepy-sage 
+
+                                  587222 
+
+                                  294 
+ 
+
+                                    7%|███▏                                         | 70/1000 [00:36<07:49,  1.98it/s]['https://neocities.org/site/wildrose', 'https://neocities.org/site/loveweb', 'https://neocities.org/site/scouts-basement']
+
+                                  https://neocities.org/site/wildrose 
+
+                                  97166 
+
+                                  23 
+ 
+
+                                    7%|███▏                                         | 71/1000 [00:37<07:18,  2.12it/s]['https://neocities.org/site/loveweb', 'https://neocities.org/site/scouts-basement', 'https://neocities.org/site/angelovin']
+
+                                  https://neocities.org/site/loveweb 
+
+                                  424836 
+
+                                  256 
+ 
+
+                                    7%|███▏                                         | 72/1000 [00:37<06:46,  2.28it/s]['https://neocities.org/site/scouts-basement', 'https://neocities.org/site/angelovin', 'https://neocities.org/site/webgore']
+
+                                  https://neocities.org/site/scouts-basement 
+
+                                  110405 
+
+                                  90 
+ 
+
+                                    7%|███▎                                         | 73/1000 [00:37<06:31,  2.37it/s]['https://neocities.org/site/angelovin', 'https://neocities.org/site/webgore', 'https://neocities.org/site/cherubiims']
+
+                                  https://neocities.org/site/angelovin 
+
+                                  222446 
+
+                                  102 
+ 
+
+                                    7%|███▎                                         | 74/1000 [00:38<06:19,  2.44it/s]['https://neocities.org/site/webgore', 'https://neocities.org/site/cherubiims', 'https://neocities.org/site/finalfantasyix']
+
+                                  https://neocities.org/site/webgore 
+
+                                  114552 
+
+                                  83 
+ 
+
+                                    8%|███▍                                         | 75/1000 [00:38<06:19,  2.44it/s]['https://neocities.org/site/cherubiims', 'https://neocities.org/site/finalfantasyix', 'https://neocities.org/site/juxtajuno']
+
+                                  https://neocities.org/site/cherubiims 
+
+                                  213419 
+
+                                  266 
+ 
+
+                                    8%|███▍                                         | 76/1000 [00:39<06:46,  2.27it/s]['https://neocities.org/site/finalfantasyix', 'https://neocities.org/site/juxtajuno', 'https://neocities.org/site/ranjam']
+
+                                  https://neocities.org/site/finalfantasyix 
+
+                                  36037 
+
+                                  83 
+ 
+
+                                    8%|███▍                                         | 77/1000 [00:39<06:41,  2.30it/s]['https://neocities.org/site/juxtajuno', 'https://neocities.org/site/ranjam', 'https://neocities.org/site/kyrn0v']
+
+                                  https://neocities.org/site/juxtajuno 
+
+                                  148190 
+
+                                  76 
+ 
+
+                                    8%|███▌                                         | 78/1000 [00:40<06:36,  2.33it/s]['https://neocities.org/site/ranjam', 'https://neocities.org/site/kyrn0v', 'https://neocities.org/site/y2k']
+
+                                  https://neocities.org/site/ranjam 
+
+                                  27102 
+
+                                  71 
+ 
+
+                                    8%|███▌                                         | 79/1000 [00:40<07:47,  1.97it/s]['https://neocities.org/site/kyrn0v', 'https://neocities.org/site/y2k', 'https://neocities.org/site/cl4m0']
+
+                                  https://neocities.org/site/kyrn0v 
+
+                                  6517 
+
+                                  98 
+ 
+
+                                    8%|███▌                                         | 80/1000 [00:41<08:47,  1.74it/s]['https://neocities.org/site/y2k', 'https://neocities.org/site/cl4m0', 'https://neocities.org/site/moseni']
+
+                                  https://neocities.org/site/y2k 
+
+                                  20813249 
+
+                                  864 
+ 
+
+                                    8%|███▋                                         | 81/1000 [00:41<08:28,  1.81it/s]['https://neocities.org/site/cl4m0', 'https://neocities.org/site/moseni', 'https://neocities.org/site/mitzyrie']
+
+                                  https://neocities.org/site/cl4m0 
+
+                                  385692 
+
+                                  45 
+ 
+
+                                    8%|███▋                                         | 82/1000 [00:42<07:28,  2.05it/s]['https://neocities.org/site/moseni', 'https://neocities.org/site/mitzyrie', 'https://neocities.org/site/5493']
+
+                                  https://neocities.org/site/moseni 
+
+                                  274610 
+
+                                  66 
+ 
+
+                                    8%|███▋                                         | 83/1000 [00:42<06:57,  2.20it/s]['https://neocities.org/site/mitzyrie', 'https://neocities.org/site/5493', 'https://neocities.org/site/alcatrazisland']
+
+                                  https://neocities.org/site/mitzyrie 
+
+                                  147833 
+
+                                  69 
+ 
+
+                                    8%|███▊                                         | 84/1000 [00:43<06:36,  2.31it/s]['https://neocities.org/site/5493', 'https://neocities.org/site/alcatrazisland', 'https://neocities.org/site/callmecannibal']
+
+                                  https://neocities.org/site/5493 
+
+                                  76078 
+
+                                  39 
+ 
+
+                                    8%|███▊                                         | 85/1000 [00:43<06:14,  2.45it/s]['https://neocities.org/site/alcatrazisland', 'https://neocities.org/site/callmecannibal', 'https://neocities.org/site/sunmiflowers']
+
+                                  https://neocities.org/site/alcatrazisland 
+
+                                  91279 
+
+                                  148 
+ 
+
+                                    9%|███▊                                         | 86/1000 [00:44<07:11,  2.12it/s]['https://neocities.org/site/callmecannibal', 'https://neocities.org/site/sunmiflowers', 'https://neocities.org/site/i026net']
+
+                                  https://neocities.org/site/callmecannibal 
+
+                                  134158 
+
+                                  34 
+ 
+
+                                    9%|███▉                                         | 87/1000 [00:44<06:37,  2.30it/s]['https://neocities.org/site/sunmiflowers', 'https://neocities.org/site/i026net', 'https://neocities.org/site/out']
+
+                                  https://neocities.org/site/sunmiflowers 
+
+                                  159199 
+
+                                  64 
+ 
+
+                                    9%|███▉                                         | 88/1000 [00:44<06:20,  2.40it/s]['https://neocities.org/site/i026net', 'https://neocities.org/site/out', 'https://neocities.org/site/kirayueyx']
+
+                                  https://neocities.org/site/i026net 
+
+                                  68518 
+
+                                  33 
+ 
+
+                                    9%|████                                         | 89/1000 [00:45<05:47,  2.62it/s]['https://neocities.org/site/out', 'https://neocities.org/site/kirayueyx', 'https://neocities.org/site/blueazul']
+
+                                  https://neocities.org/site/out 
+
+                                  85742 
+
+                                  39 
+ 
+
+                                    9%|████                                         | 90/1000 [00:45<05:33,  2.73it/s]['https://neocities.org/site/kirayueyx', 'https://neocities.org/site/blueazul', 'https://neocities.org/site/zeb-dev']
+
+                                  https://neocities.org/site/kirayueyx 
+
+                                  12299 
+
+                                  32 
+ 
+
+                                    9%|████                                         | 91/1000 [00:45<05:38,  2.69it/s]['https://neocities.org/site/blueazul', 'https://neocities.org/site/zeb-dev', 'https://neocities.org/site/sashikitten']
+
+                                  https://neocities.org/site/blueazul 
+
+                                  33374 
+
+                                  32 
+ 
+
+                                    9%|████▏                                        | 92/1000 [00:46<05:37,  2.69it/s]['https://neocities.org/site/zeb-dev', 'https://neocities.org/site/sashikitten', 'https://neocities.org/site/hexate']
+
+                                  https://neocities.org/site/zeb-dev 
+
+                                  105872 
+
+                                  3 
+ 
+
+                                    9%|████▏                                        | 93/1000 [00:46<05:23,  2.81it/s]['https://neocities.org/site/sashikitten', 'https://neocities.org/site/hexate', 'https://neocities.org/site/oyaswmi']
+
+                                  https://neocities.org/site/sashikitten 
+
+                                  28202 
+
+                                  58 
+ 
+
+                                    9%|████▏                                        | 94/1000 [00:46<05:41,  2.65it/s]['https://neocities.org/site/hexate', 'https://neocities.org/site/oyaswmi', 'https://neocities.org/site/lone']
+
+                                  https://neocities.org/site/hexate 
+
+                                  77593 
+
+                                  10 
+ 
+
+                                   10%|████▎                                        | 95/1000 [00:47<05:24,  2.79it/s]['https://neocities.org/site/oyaswmi', 'https://neocities.org/site/lone', 'https://neocities.org/site/device-contact-ins']
+
+                                  https://neocities.org/site/oyaswmi 
+
+                                  57012 
+
+                                  41 
+ 
+
+                                   10%|████▎                                        | 96/1000 [00:47<05:13,  2.88it/s]['https://neocities.org/site/lone', 'https://neocities.org/site/device-contact-ins', 'https://neocities.org/site/nomoida']
+
+                                  https://neocities.org/site/lone 
+
+                                  90325 
+
+                                  11 
+ 
+
+                                   10%|████▎                                        | 97/1000 [00:47<05:06,  2.94it/s]['https://neocities.org/site/device-contact-ins', 'https://neocities.org/site/nomoida', 'https://neocities.org/site/ghosthugdimension']
+
+                                  https://neocities.org/site/device-contact-ins 
+
+                                  112633 
+
+                                  8 
+ 
+
+                                   10%|████▍                                        | 98/1000 [00:48<05:02,  2.98it/s]['https://neocities.org/site/nomoida', 'https://neocities.org/site/ghosthugdimension', 'https://neocities.org/site/granolaria']
+
+                                  https://neocities.org/site/nomoida 
+
+                                  80641 
+
+                                  29 
+ 
+
+                                   10%|████▍                                        | 99/1000 [00:48<05:34,  2.69it/s]['https://neocities.org/site/ghosthugdimension', 'https://neocities.org/site/granolaria', 'https://neocities.org/site/doumeli']
+
+                                  https://neocities.org/site/ghosthugdimension 
+
+                                  17221 
+
+                                  18 
+ 
+
+                                   10%|████▍                                       | 100/1000 [00:49<05:30,  2.72it/s]['https://neocities.org/site/granolaria', 'https://neocities.org/site/doumeli', 'https://neocities.org/site/galaxydiamond']
+
+                                  https://neocities.org/site/granolaria 
+
+                                  27424 
+
+                                  7 
+ 
+
+                                   10%|████▍                                       | 101/1000 [00:49<05:16,  2.84it/s]['https://neocities.org/site/doumeli', 'https://neocities.org/site/galaxydiamond', 'https://neocities.org/site/destinys-domain']
+
+                                  https://neocities.org/site/doumeli 
+
+                                  19681 
+
+                                  25 
+ 
+
+                                   10%|████▍                                       | 102/1000 [00:49<05:19,  2.81it/s]['https://neocities.org/site/galaxydiamond', 'https://neocities.org/site/destinys-domain', 'https://neocities.org/site/antipsychquatic']
+
+                                  https://neocities.org/site/galaxydiamond 
+
+                                  28633 
+
+                                  55 
+ 
+
+                                   10%|████▌                                       | 103/1000 [00:50<06:01,  2.48it/s]['https://neocities.org/site/destinys-domain', 'https://neocities.org/site/antipsychquatic', 'https://neocities.org/site/the-french-grill']
+
+                                  https://neocities.org/site/destinys-domain 
+
+                                  28095 
+
+                                  1 
+ 
+
+                                   10%|████▌                                       | 104/1000 [00:50<05:35,  2.67it/s]['https://neocities.org/site/antipsychquatic', 'https://neocities.org/site/the-french-grill', 'https://neocities.org/site/lily-tritoon']
+
+                                  https://neocities.org/site/antipsychquatic 
+
+                                  42100 
+
+                                  13 
+ 
+
+                                   10%|████▌                                       | 105/1000 [00:50<05:41,  2.62it/s]['https://neocities.org/site/the-french-grill', 'https://neocities.org/site/lily-tritoon', 'https://neocities.org/site/missing-love']
+
+                                  https://neocities.org/site/the-french-grill 
+
+                                  5059 
+
+                                  4 
+ 
+
+                                   11%|████▋                                       | 106/1000 [00:51<05:27,  2.73it/s]['https://neocities.org/site/lily-tritoon', 'https://neocities.org/site/missing-love', 'https://neocities.org/site/lepoisson']
+
+                                  https://neocities.org/site/lily-tritoon 
+
+                                  45496 
+
+                                  3 
+ 
+
+                                   11%|████▋                                       | 107/1000 [00:51<05:18,  2.80it/s]['https://neocities.org/site/missing-love', 'https://neocities.org/site/lepoisson', 'https://neocities.org/site/blytherenay']
+
+                                  https://neocities.org/site/missing-love 
+
+                                  7917 
+
+                                  6 
+ 
+
+                                   11%|████▊                                       | 108/1000 [00:51<05:20,  2.78it/s]['https://neocities.org/site/lepoisson', 'https://neocities.org/site/blytherenay', 'https://neocities.org/site/lazymarkers']
+
+                                  https://neocities.org/site/lepoisson 
+
+                                  5577 
+
+                                  4 
+ 
+
+                                   11%|████▊                                       | 109/1000 [00:52<05:18,  2.80it/s]['https://neocities.org/site/blytherenay', 'https://neocities.org/site/lazymarkers', 'https://neocities.org/site/nerdforeternity']
+
+                                  https://neocities.org/site/blytherenay 
+
+                                  1774 
+
+                                  6 
+ 
+
+                                   11%|████▊                                       | 110/1000 [00:52<05:19,  2.78it/s]['https://neocities.org/site/lazymarkers', 'https://neocities.org/site/nerdforeternity', 'https://neocities.org/site/halfjokeclover']
+
+                                  https://neocities.org/site/lazymarkers 
+
+                                  2657 
+
+                                  4 
+ 
+
+                                   11%|████▉                                       | 111/1000 [00:52<05:13,  2.84it/s]['https://neocities.org/site/nerdforeternity', 'https://neocities.org/site/halfjokeclover', 'https://neocities.org/site/sasant']
+
+                                  https://neocities.org/site/nerdforeternity 
+
+                                  3037 
+
+                                  3 
+ 
+
+                                   11%|████▉                                       | 112/1000 [00:53<05:08,  2.88it/s]['https://neocities.org/site/halfjokeclover', 'https://neocities.org/site/sasant', 'https://neocities.org/site/sorceress-nicole']
+
+                                  https://neocities.org/site/halfjokeclover 
+
+                                  1912 
+
+                                  4 
+ 
+
+                                   11%|████▉                                       | 113/1000 [00:53<05:01,  2.95it/s]['https://neocities.org/site/sasant', 'https://neocities.org/site/sorceress-nicole', 'https://neocities.org/site/ashleysbraindump']
+
+                                  https://neocities.org/site/sasant 
+
+                                  1716 
+
+                                  14 
+ 
+
+                                   11%|█████                                       | 114/1000 [00:54<05:07,  2.88it/s]['https://neocities.org/site/sorceress-nicole', 'https://neocities.org/site/ashleysbraindump', 'https://neocities.org/site/dreaming-moon']
+
+                                  https://neocities.org/site/sorceress-nicole 
+
+                                  1712 
+
+                                  8 
+ 
+
+                                   12%|█████                                       | 115/1000 [00:54<05:09,  2.86it/s]['https://neocities.org/site/ashleysbraindump', 'https://neocities.org/site/dreaming-moon', 'https://neocities.org/site/toloufyi']
+
+                                  https://neocities.org/site/ashleysbraindump 
+
+                                  2060 
+
+                                  3 
+ 
+
+                                   12%|█████                                       | 116/1000 [00:54<05:02,  2.92it/s]['https://neocities.org/site/dreaming-moon', 'https://neocities.org/site/toloufyi', 'https://neocities.org/site/mintyly']
+
+                                  https://neocities.org/site/dreaming-moon 
+
+                                  6523 
+
+                                  1 
+ 
+
+                                   12%|█████▏                                      | 117/1000 [00:55<05:10,  2.84it/s]['https://neocities.org/site/toloufyi', 'https://neocities.org/site/mintyly', 'https://neocities.org/site/entropies']
+
+                                  https://neocities.org/site/toloufyi 
+
+                                  1143 
+
+                                  4 
+ 
+
+                                   12%|█████▏                                      | 118/1000 [00:55<05:11,  2.83it/s]['https://neocities.org/site/mintyly', 'https://neocities.org/site/entropies', 'https://neocities.org/site/theoddhawk']
+
+                                  https://neocities.org/site/mintyly 
+
+                                  7691 
+
+                                  2 
+ 
+
+                                   12%|█████▏                                      | 119/1000 [00:55<05:12,  2.82it/s]['https://neocities.org/site/entropies', 'https://neocities.org/site/theoddhawk', 'https://neocities.org/site/nats-nook']
+
+                                  https://neocities.org/site/entropies 
+
+                                  7943 
+
+                                  6 
+ 
+
+                                   12%|█████▎                                      | 120/1000 [00:56<05:20,  2.74it/s]['https://neocities.org/site/theoddhawk', 'https://neocities.org/site/nats-nook', 'https://neocities.org/site/endersmind']
+
+                                  https://neocities.org/site/theoddhawk 
+
+                                  4668 
+
+                                  1 
+ 
+
+                                   12%|█████▎                                      | 121/1000 [00:56<05:09,  2.84it/s]['https://neocities.org/site/nats-nook', 'https://neocities.org/site/endersmind', 'https://neocities.org/site/sickdoll']
+
+                                  https://neocities.org/site/nats-nook 
+
+                                  2271 
+
+                                  2 
+ 
+
+                                   12%|█████▎                                      | 122/1000 [00:56<05:10,  2.82it/s]['https://neocities.org/site/endersmind', 'https://neocities.org/site/sickdoll', 'https://neocities.org/site/leroymilo']
+
+                                  https://neocities.org/site/endersmind 
+
+                                  1482 
+
+                                  1 
+ 
+
+                                   12%|█████▍                                      | 123/1000 [00:57<05:09,  2.83it/s]['https://neocities.org/site/sickdoll', 'https://neocities.org/site/leroymilo', 'https://neocities.org/site/koilwood']
+
+                                  https://neocities.org/site/sickdoll 
+
+                                  239 
+
+                                  1 
+ 
+
+                                   12%|█████▍                                      | 124/1000 [00:57<05:45,  2.54it/s]['https://neocities.org/site/leroymilo', 'https://neocities.org/site/koilwood', 'https://neocities.org/site/stupied-profile']
+
+                                  https://neocities.org/site/leroymilo 
+
+                                  3427 
+
+                                  2 
+ 
+
+                                   12%|█████▌                                      | 125/1000 [00:58<05:25,  2.69it/s]['https://neocities.org/site/koilwood', 'https://neocities.org/site/stupied-profile', 'https://neocities.org/site/starry-knight']
+
+                                  https://neocities.org/site/koilwood 
+
+                                  417255 
+
+                                  724 
+ 
+
+                                   13%|█████▌                                      | 126/1000 [00:58<05:45,  2.53it/s]['https://neocities.org/site/stupied-profile', 'https://neocities.org/site/starry-knight', 'https://neocities.org/site/sweetheartmemory']
+
+                                  https://neocities.org/site/stupied-profile 
+
+                                  244492 
+
+                                  498 
+ 
+
+                                   13%|█████▌                                      | 127/1000 [00:59<07:09,  2.03it/s]['https://neocities.org/site/starry-knight', 'https://neocities.org/site/sweetheartmemory', 'https://neocities.org/site/aywren']
+
+                                  https://neocities.org/site/starry-knight 
+
+                                  160902 
+
+                                  245 
+ 
+
+                                   13%|█████▋                                      | 128/1000 [00:59<07:22,  1.97it/s]['https://neocities.org/site/sweetheartmemory', 'https://neocities.org/site/aywren', 'https://neocities.org/site/zhongvie']
+
+                                  https://neocities.org/site/sweetheartmemory 
+
+                                  231710 
+
+                                  560 
+ 
+
+                                   13%|█████▋                                      | 129/1000 [01:00<07:57,  1.82it/s]['https://neocities.org/site/aywren', 'https://neocities.org/site/zhongvie', 'https://neocities.org/site/artwork']
+
+                                  https://neocities.org/site/aywren 
+
+                                  11190360 
+
+                                  271 
+ 
+
+                                   13%|█████▋                                      | 130/1000 [01:00<08:05,  1.79it/s]['https://neocities.org/site/zhongvie', 'https://neocities.org/site/artwork', 'https://neocities.org/site/hgari']
+
+                                  https://neocities.org/site/zhongvie 
+
+                                  212730 
+
+                                  281 
+ 
+
+                                   13%|█████▊                                      | 131/1000 [01:01<08:56,  1.62it/s]['https://neocities.org/site/artwork', 'https://neocities.org/site/hgari', 'https://neocities.org/site/numbersstory']
+
+                                  https://neocities.org/site/artwork 
+
+                                  3045083 
+
+                                  1009 
+ 
+
+                                   13%|█████▊                                      | 132/1000 [01:03<12:45,  1.13it/s]['https://neocities.org/site/hgari', 'https://neocities.org/site/numbersstory', 'https://neocities.org/site/fabled']
+
+                                  https://neocities.org/site/hgari 
+
+                                  458347 
+
+                                  433 
+ 
+
+                                   13%|█████▊                                      | 133/1000 [01:03<11:00,  1.31it/s]['https://neocities.org/site/numbersstory', 'https://neocities.org/site/fabled', 'https://neocities.org/site/pip-pepping']
+
+                                  https://neocities.org/site/numbersstory 
+
+                                  989495 
+
+                                  215 
+ 
+
+                                   13%|█████▉                                      | 134/1000 [01:04<10:01,  1.44it/s]['https://neocities.org/site/fabled', 'https://neocities.org/site/pip-pepping', 'https://neocities.org/site/cloudcover']
+
+                                  https://neocities.org/site/fabled 
+
+                                  357986 
+
+                                  322 
+ 
+
+                                   14%|█████▉                                      | 135/1000 [01:04<10:06,  1.43it/s]['https://neocities.org/site/pip-pepping', 'https://neocities.org/site/cloudcover', 'https://neocities.org/site/petrapixel']
+
+                                  https://neocities.org/site/pip-pepping 
+
+                                  414968 
+
+                                  88 
+ 
+
+                                   14%|█████▉                                      | 136/1000 [01:05<08:47,  1.64it/s]['https://neocities.org/site/cloudcover', 'https://neocities.org/site/petrapixel', 'https://neocities.org/site/slushiecafe']
+
+                                  https://neocities.org/site/cloudcover 
+
+                                  780028 
+
+                                  465 
+ 
+
+                                   14%|██████                                      | 137/1000 [01:06<10:07,  1.42it/s]['https://neocities.org/site/petrapixel', 'https://neocities.org/site/slushiecafe', 'https://neocities.org/site/sweetfish']
+
+                                  https://neocities.org/site/petrapixel 
+
+                                  2982693 
+
+                                  1976 
+ 
+
+                                   14%|██████                                      | 138/1000 [01:07<10:37,  1.35it/s]['https://neocities.org/site/slushiecafe', 'https://neocities.org/site/sweetfish', 'https://neocities.org/site/ghostingpen']
+
+                                  https://neocities.org/site/slushiecafe 
+
+                                  163599 
+
+                                  240 
+ 
+
+                                   14%|██████                                      | 139/1000 [01:07<09:32,  1.50it/s]
