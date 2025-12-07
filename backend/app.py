@@ -5,7 +5,7 @@ from flask_cors import CORS
 from markupsafe import escape
 import sqlite3
 import sys, getopt
-from time import sleep
+from time import sleep,time
 import os
 from itertools import chain
 import string
@@ -27,6 +27,9 @@ limiter = Limiter(
 @app.route("/search")
 
 def search():
+
+    #timer for measuring how long a query takes
+    query_timer_start = time()
 
     #NOTE all paths with data/ are pathing to the render persistent disk mounted in the same directory as app.py
     # this means that local files and the server files have the same path
@@ -89,10 +92,14 @@ def search():
 
                 
     ids_ranked = neorank_db_cursor.execute(sql_query, tuple(site_ids)).fetchall()
+
+    query_timer_end = time()
+    
     #returns json of array with all sites in order
     return {'site_urls': [site[3] for site in ids_ranked],
             'profile_urls': [site[4] for site in ids_ranked],
-            'site_title': [site[5] for site in ids_ranked]}
+            'site_title': [site[5] for site in ids_ranked],
+            'query_duration': query_timer_end-query_timer_start}
 
     stats_db.close()
     site_words_db.close()
