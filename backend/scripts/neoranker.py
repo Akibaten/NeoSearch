@@ -1,10 +1,5 @@
 import sqlite3
-
-# neorank_list = []
-
-# total_views = 0;
-
-# total_followers = 0;
+import math
 
 stats_db = sqlite3.connect("../data/site_stats.db")
 stats_db_cursor = stats_db.cursor()
@@ -32,15 +27,19 @@ def calc_neorank(site):
     global total_followers
 
     #I convert views and followers to int here
-    # they should always be int but some weird edge cases idk
-    site_views = int(site[3]) / total_views
-
-    print(site_views)
-    site_followers = int(site[4]) / total_followers
+    site_views = int(site[4]) / total_views
+    site_followers = int(site[5]) / total_followers
+    time_since_update = int(site[6])
     views_modifier = 1
     followers_modifier = 1
 
-    return views_modifier  * site_views + followers_modifier * site_followers
+    #time since the last update is weighted very *interestingly*
+    # Ideally I want difference to be minimal up to about 3 months
+    # and then after I want it to increase somewhat close to linearly and then get higher
+    # i messed around and think that a sigmoid function is likely best for this
+    time_since_update_modifier = y = 1 / (1 + math.e ** (time_since_update / 2592000))
+
+    return time_since_update_modifier*(views_modifier  * site_views + followers_modifier * site_followers)
 
 for site in stats_db_cursor.execute("SELECT * FROM website"):
     neorank_db.execute("""
