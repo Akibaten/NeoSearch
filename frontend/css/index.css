@@ -12,9 +12,14 @@ html * {
 
 #search-bar-input {
   height: 2rem;
+  font-size: 1.3em;
   margin: 0 auto 2rem auto;
   width: 100%;
   display: block;
+}
+
+#search-bar-input input {
+  font-size: 3rem;
 }
 
 #search-button {
@@ -22,6 +27,7 @@ html * {
   display: block;
   margin: 0 auto 0 auto;
   width: 30%;
+  height: 2rem;
 }
 
 #results-page {
@@ -65,9 +71,19 @@ p {
   font-size: 1.2em;
 }
 
+a {
+  color: blue;
+}
+
 body {
   background-color: white;
   color: black;
   font-family: Verdana;
   margin: 0;
+  font-family: 'capriola';
+}
+
+@font-face {
+  font-family: 'capriola';
+  src: url(../fonts/Capriola-Regular.ttf)
 }

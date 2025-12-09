@@ -9,6 +9,8 @@ from time import sleep,time
 import os
 from itertools import chain
 import string
+import structlog
+from pathlib import Path
 
 app = Flask(__name__)
 
@@ -31,6 +33,22 @@ def search():
     #timer for measuring how long a query takes
     query_timer_start = time()
 
+    # opens logs for queries made for analytics reasons. This is anonymous completely of course
+    structlog.configure(
+    processors=[
+        structlog.processors.add_log_level,
+        structlog.processors.StackInfoRenderer(),
+        structlog.dev.set_exc_info,
+        structlog.processors.TimeStamper(fmt="iso"),
+        structlog.processors.JSONRenderer(),
+    ],
+    logger_factory=structlog.WriteLoggerFactory(
+        file=Path("data/query.log").with_suffix(".log").open("a")
+
+    ),)
+
+    query_logger = structlog.get_logger()
+
     #NOTE all paths with data/ are pathing to the render persistent disk mounted in the same directory as app.py
     # this means that local files and the server files have the same path
    
@@ -48,7 +66,10 @@ def search():
 
     #gets keywords for query
     query = request.args.get("q","")
-    
+
+    # write query to log
+    query_logger.info("search", query=f"{query}")
+
     #deletes duplicate keywords
     keywords = set(query.lower().translate(str.maketrans('','', string.punctuation)).split())
 
@@ -94,6 +115,8 @@ def search():
     ids_ranked = neorank_db_cursor.execute(sql_query, tuple(site_ids)).fetchall()
 
     query_timer_end = time()
+
+    
     
     #returns json of array with all sites in order
     return {'site_urls': [site[3] for site in ids_ranked],

@@ -20,7 +20,12 @@ NeoSearch currently supports exact multi keyword searching with plans for semant
 # Installation
 NeoSearch is built with Python 3.13.
 
-The dependencies required for the python scripts to run can be found in requirements.txt
+All the files related to the frontend of the website can be found in the frontend directory
+This includes the HTML, CSS, and Javascript.
+
+For the backend:
+
+The dependencies required for the python scripts to run can be found in backend/requirements.txt
 
 Installing these should preferably be done in a [virtual environment](https://docs.python.org/3/library/venv.html), but they can also just be installed globally.
 
@@ -69,12 +74,18 @@ This should make your own local database.
 
 # Usage
 
-To search something just run
+To search something in the UI just run
 ```
 python3 scripts/search.py "keywords you want to search"
 ```
 
 It will output all the relevant sites in their ranked order.
+
+For dev purposes it is also possible to start a flask server to make requests to a locally served flask server.
+To do so run this command
+```
+flask --app /backend/app.py run
+```
 
 # Contributing
 
