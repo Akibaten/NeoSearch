@@ -104,8 +104,6 @@ class NeocitiesSpider(scrapy.Spider):
                 if (f"https://neocities.org{link}" not in sites_visited and
                     f"https://neocities.org{link}" not in sites_to_visit):
                     sites_to_visit.append(f"https://neocities.org{link}")
-               # print(scrapy.Request(url=f"https://neocities.org{link}follows", callback=self.parse))
-                # yield scrapy.Request(url=link, callback=self.parse)
             
             add_to_stats_db(id=crawlcounter,
                             site_url= user_site_url,
@@ -156,8 +154,6 @@ def add_to_stats_db(id,site_url,profile_url, site_title, views,followers,time_si
 crawler = CrawlerProcess(settings={
     'DOWNLOAD_DELAY': 0.25,
     'LOG_LEVEL':  'DEBUG',
-    
-    # GRRRRR This is important
     # with multiple concurrent requests
     # sometimes in edge cases duplicates
     # will accidentally bypass the filter
@@ -174,5 +170,3 @@ crawler.start()
 crawl_log.close()
 stats_db.close()
 progressbar.close()
-
-gc.collect()

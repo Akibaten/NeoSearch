@@ -40,7 +40,8 @@ def search(*args):
                 WHERE word_id IN ({placeholders})
                 GROUP BY site_id
                 HAVING COUNT(DISTINCT word_id) = {len(keywords_as_ids)}"""
-                
+
+    breakpoint()                
     site_ids = [int(site_id[0]) for site_id in site_words_db_cursor.execute(query, keywords_as_ids).fetchall()]
 
     return site_ids

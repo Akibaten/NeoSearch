@@ -3,7 +3,7 @@ html * {
 }
 
 #results-page {
-  padding: 0 20% 0 20%;
+  padding: 0 10vw 0 10vw;
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -36,6 +36,7 @@ html * {
   display: flex;
   flex-direction: column;
   width: 120%;
+  justify-content: center;
 }
 
 .page-number {
@@ -52,7 +53,7 @@ html * {
 
 
 .site-title {
-  font-size: 2em;
+  font-size: 1.75em;
   margin: 0 0 1rem 0;
   width: 90%;
 }
