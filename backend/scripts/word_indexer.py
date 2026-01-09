@@ -36,13 +36,8 @@ id_site_list = stats_db_cursor.execute("""SELECT id, site_url FROM website""").f
 progressbar = tqdm(total = len(id_site_list) - 1)
 
 pages_to_visit = deque([site for site in id_site_list])
-breakpoint()
-site_lists = []
-for site_list in np.array_split(id_site_list, 4):
-    chunk = [tuple(site) for site in site_list.tolist()]
-    site_lists.append(chunk)
 
-
+pages_visited = deque()
 
 #creates lxml cleaner for later use
 cleaner = Cleaner()
@@ -54,43 +49,31 @@ cleaner.removetags = True
 
 punctuation_remover = str.maketrans('', '', string.punctuation)
 
-
-
 class KeywordSpider(scrapy.Spider):
     name = "keywordspider"
 
     #logic for encountering 404s
     handle_httpstatus_list = [404]
 
-    def __init__(self, site_list, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for url in site_list:
-            pages_to_visit.append(url)
+    # def __init__(self, site_list, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+
+    global pages_visited
+    global pages_to_visit
 
     def start_requests(self):
-        yield scrapy.Request(url=self.pages_to_visit[0][1], callback=self.scrape_site, cb_kwargs={'site_id': self.pages_to_visit[0][0]})
+        page = pages_to_visit[0]
+        pages_to_visit.popleft()
+        pages_visited.append(page)
+        yield scrapy.Request(url=page[1], callback=self.scrape_site, cb_kwargs={'site_id': page[0]})
     
     def scrape_site(self, response, site_id):
-        print(self.pages_to_visit)
-        print("\n\n")
-        print(self.pages_visited)
-        print("\n\n")
-        self.pages_visited.append((site_id,response.url))
-
-        self.pages_to_visit.popleft()
         
+
         #handles 404 logic
         #basically just does the callback earlierso using self.parse() doesn't throw an error
-        if response.status == 404:
-            yield scrapy.Request(url=self.pages_to_visit[0][1], callback=self.scrape_site, cb_kwargs={'site_id': self.pages_to_visit[0][0]})
-        
-        progressbar.update(1)
-        progressbar.refresh()
-        self.parse(response, site_id)
-        print(f"intersection: {set(self.pages_to_visit).intersection(set(self.pages_visited))}")
-        yield scrapy.Request(url=self.pages_to_visit[0][1], callback=self.scrape_site, cb_kwargs={'site_id': self.pages_to_visit[0][0]})
-
-    def parse(self, response,site_id):
+        if response.status == 404:        
+            yield scrapy.Request(url=next_page[1], callback=self.scrape_site, cb_kwargs={'site_id': next_page[0]})
         
         # Get all href attributes
         all_hrefs = response.css('a::attr(href)').getall()
@@ -100,10 +83,10 @@ class KeywordSpider(scrapy.Spider):
                 if "." not in href or ".html" in href:
                     relative_url = response.urljoin(href)
                     if (relative_url.startswith(('http://','https://'))
-                        and (site_id, relative_url) not in self.pages_to_visit
-                        and (site_id, relative_url) not in self.pages_visited):
+                        and (site_id, relative_url) not in pages_to_visit
+                        and (site_id, relative_url) not in pages_visited):
                         #appends sanitized relative url to the deque of pages to be visited
-                        self.pages_to_visit.append((site_id, relative_url))   
+                        pages_to_visit.append((site_id, relative_url))   
                         
                         #increases the size of the tqdm progress progressbar
                         progressbar.total += 1
@@ -132,29 +115,42 @@ class KeywordSpider(scrapy.Spider):
                 INSERT INTO site_words(site_id,word_id)
                 VALUES (?,?)                            
                                         """,(site_id,word_id))
+
         word_id_db.commit()
         site_words_db.commit()
+        progressbar.update(1)
+        progressbar.refresh()
+
+        if len(pages_to_visit) == 0:
+            print("no more pages to visit in queue")
+            return
+
+        next_page = pages_to_visit[0]
+        pages_to_visit.popleft()
+        pages_visited.append(next_page)
+        
+        yield scrapy.Request(url=next_page[1], callback=self.scrape_site, cb_kwargs={'site_id': next_page[0]})
 
 crawler = CrawlerProcess(settings={
-    'LOG_LEVEL':  'CRITICAL',
+    'LOG_LEVEL':  'DEBUG',
     
     'CONCURRENT_REQUESTS': 16,
+    
+    'DUPEFILTER_CLASS' : 'scrapy.dupefilters.BaseDupeFilter',
 
     # stop trying hanging sites forever
     'AUTOTHROTTLE_ENABLED': True,
-    'AUTOTHROTTLE_START_DELAY': 1,
+    'AUTOTHROTTLE_START_DELAY': .25,
     'AUTOTHROTTLE_MAX_DELAY': 10,
     'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
     'DOWNLOAD_TIMEOUT': 2,
     'RETRY_TIMES': 2
 })
 
-
-
-crawler.crawl(KeywordSpider,site_list=site_lists[0])
-# crawler.crawl(KeywordSpider,site_list=site_lists[1])
-# crawler.crawl(KeywordSpider,site_list=site_lists[2])
-# crawler.crawl(KeywordSpider,site_list=site_lists[3])
+crawler.crawl(KeywordSpider)
+# crawler.crawl(KeywordSpider)
+# crawler.crawl(KeywordSpider)
+# crawler.crawl(KeywordSpider)
 
 crawler.start()
 

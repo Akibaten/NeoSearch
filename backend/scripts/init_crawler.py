@@ -18,10 +18,10 @@ sites_visited = set()
 crawlcounter = 0
 
 #first profile to crawl
-init_profile = "https://neocities.org/site/lilithdev"
+first_profile = f"https://neocities.org/site/{str(sys.argv[1])}"
 
 #total number of sites to crawl
-number_of_sites_to_crawl = int(sys.argv[1])
+number_of_sites_to_crawl = int(sys.argv[2])
 
 #creates tqdm progress bar
 progressbar = tqdm(range(number_of_sites_to_crawl))
@@ -38,7 +38,7 @@ stats_db_cursor.execute(
 
 #creates deque queue for sites crawler needs to visit and appends first url
 sites_to_visit = deque()
-sites_to_visit.append(init_profile)
+sites_to_visit.append(first_profile)
 
 #set of sites visited sometimes scrapy doesn't catch it for some reason
 sites_visited = set()
