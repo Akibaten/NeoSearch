@@ -5,7 +5,6 @@ import re
 import sqlite3
 import string
 from tqdm import tqdm
-import numpy as np
 import scrapy
 from scrapy.crawler import CrawlerProcess
 from lxml import etree, html
