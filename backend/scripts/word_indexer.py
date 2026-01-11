@@ -9,7 +9,7 @@ import numpy as np
 import scrapy
 from scrapy.crawler import CrawlerProcess
 from lxml import etree, html
-from lxml.html.clean import Cleaner
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS # common words to filter text output with
 
 stats_db = sqlite3.connect("../data/site_stats.db")
 stats_db_cursor = stats_db.cursor()
@@ -19,7 +19,8 @@ site_words_db_cursor = site_words_db.cursor()
 site_words_db_cursor.execute("""
         CREATE TABLE IF NOT EXISTS site_words(
             site_id,
-            word_id)
+            word_id,
+            frequency)
                             """)
 
 word_id_db = sqlite3.connect("../data/word_id.db")
@@ -37,15 +38,7 @@ progressbar = tqdm(total = len(id_site_list) - 1)
 
 pages_to_visit = deque([site for site in id_site_list])
 
-pages_visited = deque()
-
-#creates lxml cleaner for later use
-cleaner = Cleaner()
-cleaner.style = True
-cleaner.inline_style = True
-cleaner.scripts = True
-cleaner.javascript = True
-cleaner.removetags = True
+pages_visited = set()
 
 punctuation_remover = str.maketrans('', '', string.punctuation)
 
@@ -64,47 +57,74 @@ class KeywordSpider(scrapy.Spider):
     def start_requests(self):
         page = pages_to_visit[0]
         pages_to_visit.popleft()
-        pages_visited.append(page)
+        pages_visited.add(page)
         yield scrapy.Request(url=page[1], callback=self.scrape_site, cb_kwargs={'site_id': page[0]})
     
     def scrape_site(self, response, site_id):
         
-
         #handles 404 logic
         #basically just does the callback earlierso using self.parse() doesn't throw an error
         if response.status == 404:        
+            next_page = pages_to_visit[0]
+            pages_to_visit.popleft()
+            pages_visited.add(next_page)
             yield scrapy.Request(url=next_page[1], callback=self.scrape_site, cb_kwargs={'site_id': next_page[0]})
         
-        # Get all href attributes
-        all_hrefs = response.css('a::attr(href)').getall()
+
+        # Get href from any tag
+        all_links = response.css('[href]::attr(href)').getall()
+
+        # Get value from option tags that might be links
+        option_links = response.css('option::attr(value)').getall()
+
+        # Combine them
+        all_hrefs = all_links + option_links
+
         # Filter for relative URLs (don't start with http:// or https://)
         for href in all_hrefs:
-            if not href.startswith(('http://', 'https://','#')):
-                if "." not in href or ".html" in href:
+            #basic sanitation first
+            href = href.encode('ascii', 'ignore').decode('ascii')
+
+            # Skip empty, just fragments, or single characters 
+            if not href or href.startswith('#') or len(href) < 2:
+                continue
+            
+            # Skip if it's just punctuation/special chars
+            if href.strip('/"\'%') == '':
+                continue
+
+            if not href.startswith(('http://', 'https://','#')) or response.url in href:
+                if "." not in href.rsplit('/',1)[-1] or ".html" in href:
                     relative_url = response.urljoin(href)
                     if (relative_url.startswith(('http://','https://'))
                         and (site_id, relative_url) not in pages_to_visit
                         and (site_id, relative_url) not in pages_visited):
+
                         #appends sanitized relative url to the deque of pages to be visited
                         pages_to_visit.append((site_id, relative_url))   
                         
                         #increases the size of the tqdm progress progressbar
                         progressbar.total += 1
+        
+        text_elements = (response.css('p::text').getall()
+                        + response.css('h1::text').getall()
+                        + response.css('h2::text').getall())
 
-        word_set = list(html.fromstring(cleaner.clean_html
-                            (response.text)).text_content().translate(punctuation_remover).split())
-        word_set.sort()
+        word_list = []
+        for element in text_elements:
+            for word in element.split():
+                word = word.lower().translate(str.maketrans('', '', string.punctuation))
+                if word not in ENGLISH_STOP_WORDS:
+                    word_list.append(word)
 
-        for word in word_set:
-            #makes each word lowercase and removes punctuation            
-            word = word.lower().translate(str.maketrans('', '', string.punctuation))
+        #tries to insert
+        word_id_db_cursor.executemany("""
+            INSERT OR IGNORE INTO word_id_list(word)
+            VALUES (?)
+            """,[(word,) for word in set(word_list)])
+            
 
-            #tries to insert
-            word_id_db_cursor.execute("""
-                INSERT OR IGNORE INTO word_id_list(word)
-                VALUES (?)
-                """,(word,))
-
+        for word in word_list:
             #fetches word ID
             word_id = word_id_db_cursor.execute("""
                 SELECT id FROM word_id_list
@@ -127,14 +147,17 @@ class KeywordSpider(scrapy.Spider):
 
         next_page = pages_to_visit[0]
         pages_to_visit.popleft()
-        pages_visited.append(next_page)
+        pages_visited.add(next_page)
+       
+        if next_page is not None:
+            yield scrapy.Request(url=next_page[1], callback=self.scrape_site, cb_kwargs={'site_id': next_page[0]})
         
-        yield scrapy.Request(url=next_page[1], callback=self.scrape_site, cb_kwargs={'site_id': next_page[0]})
 
+    
 crawler = CrawlerProcess(settings={
     'LOG_LEVEL':  'DEBUG',
     
-    'CONCURRENT_REQUESTS': 16,
+    'CONCURRENT_REQUESTS': 64,
     
     'DUPEFILTER_CLASS' : 'scrapy.dupefilters.BaseDupeFilter',
 
@@ -148,9 +171,9 @@ crawler = CrawlerProcess(settings={
 })
 
 crawler.crawl(KeywordSpider)
-# crawler.crawl(KeywordSpider)
-# crawler.crawl(KeywordSpider)
-# crawler.crawl(KeywordSpider)
+crawler.crawl(KeywordSpider)
+crawler.crawl(KeywordSpider)
+crawler.crawl(KeywordSpider)
 
 crawler.start()
 
