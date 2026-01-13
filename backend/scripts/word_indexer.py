@@ -39,6 +39,13 @@ pages_to_visit = deque([site for site in id_site_list])
 
 pages_visited = set()
 
+#the maximum number of links that can be put in the queue per page visit
+max_href_depth = 5
+
+sites_visited = dict()
+
+max_site_depth = 25
+
 punctuation_remover = str.maketrans('', '', string.punctuation)
 
 class KeywordSpider(scrapy.Spider):
@@ -56,7 +63,10 @@ class KeywordSpider(scrapy.Spider):
         yield scrapy.Request(url=page[1], callback=self.scrape_site, cb_kwargs={'site_id': page[0]})
     
     def scrape_site(self, response, site_id):
-       
+        domain = re.match(r'^https?://[^/]+', response.url).group()
+        if domain not in sites_visited:
+            sites_visited[domain] = 0
+
         #handles 404 logic
         #basically just does the callback earlierso using self.parse() doesn't throw an error
         if response.status != 200: 
@@ -65,7 +75,6 @@ class KeywordSpider(scrapy.Spider):
             pages_visited.add(next_page)
             yield scrapy.Request(url=next_page[1], callback=self.scrape_site, cb_kwargs={'site_id': next_page[0]})
         
-
         # Get href from any tag
         all_links = response.css('[href]::attr(href)').getall()
 
@@ -76,7 +85,11 @@ class KeywordSpider(scrapy.Spider):
         all_hrefs = all_links + option_links
 
         # Filter for relative URLs (don't start with http:// or https://)
+        hrefs_added = 0
         for href in all_hrefs:
+            if hrefs_added >= max_href_depth or sites_visited[domain] >= max_site_depth:
+                break
+
             #basic sanitation first
             href = href.encode('ascii', 'ignore').decode('ascii')
 
@@ -94,10 +107,11 @@ class KeywordSpider(scrapy.Spider):
                     if (relative_url.startswith(('http://','https://'))
                         and (site_id, relative_url) not in pages_to_visit
                         and (site_id, relative_url) not in pages_visited):
-
                         #appends sanitized relative url to the deque of pages to be visited
                         pages_to_visit.append((site_id, relative_url))   
-                        
+                        hrefs_added += 1
+                        sites_visited[domain] += 1
+
                         #increases the size of the tqdm progress progressbar
                         progressbar.total += 1
         
@@ -157,22 +171,15 @@ class KeywordSpider(scrapy.Spider):
 
 #many crawler settings here
 crawler = CrawlerProcess(settings={
-    'LOG_LEVEL': 'DEBUG',
+    'LOG_LEVEL': 'CRITICAL',
     
     'CONCURRENT_REQUESTS': 16,
-    'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
     
     'DUPEFILTER_CLASS': 'scrapy.dupefilters.BaseDupeFilter',
     
-    # AutoThrottle settings - more conservative
-    'AUTOTHROTTLE_ENABLED': True,
-    'AUTOTHROTTLE_START_DELAY': 1,
-    'AUTOTHROTTLE_MAX_DELAY': 10,
-    'AUTOTHROTTLE_TARGET_CONCURRENCY': 1.0,
-    
     # Increased timeout to give sites more time to respond
     'DOWNLOAD_TIMEOUT': 15,
-    
+        
     # More retries for connection issues
     'RETRY_TIMES': 3,
     'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429, 104],
@@ -184,6 +191,8 @@ crawler = CrawlerProcess(settings={
     'DNSCACHE_ENABLED': True,
 })
 
+crawler.crawl(KeywordSpider)
+crawler.crawl(KeywordSpider)
 crawler.crawl(KeywordSpider)
 crawler.crawl(KeywordSpider)
 crawler.crawl(KeywordSpider)
