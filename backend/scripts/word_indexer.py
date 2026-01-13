@@ -44,12 +44,6 @@ punctuation_remover = str.maketrans('', '', string.punctuation)
 class KeywordSpider(scrapy.Spider):
     name = "keywordspider"
 
-    #logic for encountering 404s
-    handle_httpstatus_list = [404]
-
-    # def __init__(self, site_list, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-
     global pages_visited
     global pages_to_visit
 
@@ -60,10 +54,10 @@ class KeywordSpider(scrapy.Spider):
         yield scrapy.Request(url=page[1], callback=self.scrape_site, cb_kwargs={'site_id': page[0]})
     
     def scrape_site(self, response, site_id):
-        
+       
         #handles 404 logic
         #basically just does the callback earlierso using self.parse() doesn't throw an error
-        if response.status == 404:        
+        if response.status != 200: 
             next_page = pages_to_visit[0]
             pages_to_visit.popleft()
             pages_visited.add(next_page)
@@ -149,24 +143,43 @@ class KeywordSpider(scrapy.Spider):
         pages_visited.add(next_page)
        
         if next_page is not None:
-            yield scrapy.Request(url=next_page[1], callback=self.scrape_site, cb_kwargs={'site_id': next_page[0]})
-        
+            yield scrapy.Request(url=next_page[1], callback=self.scrape_site, errback=self.handle_error, cb_kwargs={'site_id': next_page[0]})
+       
+    #handles download failures
+    def handle_error(self, failure):
+        self.logger.error(f'Failed: {failure.value}')
+        next_page = pages_to_visit[0]
+        pages_to_visit.popleft()
+        pages_visited.add(next_page)
+        yield scrapy.Request(url=next_page[1], callback=self.scrape_site, cb_kwargs={'site_id': next_page[0]}) 
 
-    
+#many crawler settings here
 crawler = CrawlerProcess(settings={
-    'LOG_LEVEL':  'DEBUG',
+    'LOG_LEVEL': 'DEBUG',
     
-    'CONCURRENT_REQUESTS': 64,
+    'CONCURRENT_REQUESTS': 16,
+    'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
     
-    'DUPEFILTER_CLASS' : 'scrapy.dupefilters.BaseDupeFilter',
-
-    # stop trying hanging sites forever
+    'DUPEFILTER_CLASS': 'scrapy.dupefilters.BaseDupeFilter',
+    
+    # AutoThrottle settings - more conservative
     'AUTOTHROTTLE_ENABLED': True,
-    'AUTOTHROTTLE_START_DELAY': .25,
+    'AUTOTHROTTLE_START_DELAY': 1,
     'AUTOTHROTTLE_MAX_DELAY': 10,
-    'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
-    'DOWNLOAD_TIMEOUT': 2,
-    'RETRY_TIMES': 2
+    'AUTOTHROTTLE_TARGET_CONCURRENCY': 1.0,
+    
+    # Increased timeout to give sites more time to respond
+    'DOWNLOAD_TIMEOUT': 15,
+    
+    # More retries for connection issues
+    'RETRY_TIMES': 3,
+    'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429, 104],
+    
+    # Add user agent to avoid blocks
+    'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    
+    # DNS caching
+    'DNSCACHE_ENABLED': True,
 })
 
 crawler.crawl(KeywordSpider)
