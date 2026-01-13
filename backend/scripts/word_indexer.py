@@ -44,6 +44,8 @@ punctuation_remover = str.maketrans('', '', string.punctuation)
 class KeywordSpider(scrapy.Spider):
     name = "keywordspider"
 
+    handle_httpstatus_list = [404, 403, 500]
+
     global pages_visited
     global pages_to_visit
 
