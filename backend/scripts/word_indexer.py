@@ -151,7 +151,7 @@ class KeywordSpider(scrapy.Spider):
         progressbar.refresh()
 
         if len(pages_to_visit) == 0:
-            print("no more pages to visit in queue")
+            print("DONE!")
             return
 
         next_page = pages_to_visit[0]
@@ -199,6 +199,8 @@ crawler.crawl(KeywordSpider)
 crawler.crawl(KeywordSpider)
 
 crawler.start()
+
+print("\n\n ~~Scraping finished~~ \n")
 
 word_id_db.commit()
 site_words_db.commit()

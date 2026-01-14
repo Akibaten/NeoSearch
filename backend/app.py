@@ -91,15 +91,13 @@ def search():
     site_ids = [int(site_id[0]) for site_id in site_words_db_cursor.execute(sql_query, keywords_as_ids).fetchall()]
 
     #beginning of rank function
-    site_neorank_list = []
-
+    
     #creates a queries with a ton of ? = to the number of elements in id_list
     placeholders = ",".join("?" * len(site_ids))
 
 
     neorank_db_cursor.execute("ATTACH DATABASE 'data/site_stats.db' AS site_stats")
-
-    
+    neorank_db_cursor.execute("ATTACH DATABASE 'data/site_words.db' AS site_words")
     
     #big big sql for me at least it was a little hard
     # attaches, left joins id and url to new cte selected with parameters, sorts by rank 
@@ -108,21 +106,38 @@ def search():
                 WHERE id IN ({placeholders}))
                 SELECT id_rank_cte.id, id_rank_cte.rank, site_stats.website.id, site_stats.website.site_url, site_stats.website.profile_url,site_stats.website.site_title
                 FROM id_rank_cte
-                LEFT JOIN site_stats.website ON id_rank_cte.id = site_stats.website.id
-                ORDER BY id_rank_cte.rank DESC"""
+                JOIN site_stats.website ON id_rank_cte.id = site_stats.website.id
+                """
+    
+    ids_with_ranks = neorank_db_cursor.execute(sql_query, tuple(site_ids)).fetchall()
+    
+    tfidf_rank_ids = []
+    
+    #creates a ton of ? = to the number of keywords
+    placeholders = ",".join("?" * len(keywords_as_ids))
+    
+    #query for  finding tf-idf values
+    sql_query = f"SELECT tfidf FROM site_words_tfidf WHERE site_id =? AND word_id IN ({placeholders})"
 
-                
-    ids_ranked = neorank_db_cursor.execute(sql_query, tuple(site_ids)).fetchall()
-
+    #find tf-idf values
+    for site in ids_with_ranks:
+        #this is a sum in the case of multiple keywords
+        total_tfidf_value = sum(
+                            [value[0] for value in site_words_db_cursor.execute(sql_query,
+                            (site[0], *[keyword for keyword in keywords_as_ids])
+                            ).fetchall()])
+        
+        #adding 1 here really smoothes it out because tfidf is a coefficient of rank in the sort
+        tfidf_rank_ids.append((site[0],site[1]*(total_tfidf_value+1),site[3],site[4],site[5]))
+    tfidf_rank_ids.sort(key=lambda x: x[1], reverse=True)
     query_timer_end = time()
 
-    
-    
     #returns json of array with all sites in order
-    return {'site_urls': [site[3] for site in ids_ranked],
-            'profile_urls': [site[4] for site in ids_ranked],
-            'site_title': [site[5] for site in ids_ranked],
-            'query_duration': query_timer_end-query_timer_start}
+    return {'site_urls': [site[2] for site in tfidf_rank_ids],
+            'profile_urls': [site[3] for site in tfidf_rank_ids],
+            'site_title': [site[4] for site in tfidf_rank_ids],
+            'query_duration': query_timer_end-query_timer_start,
+            'ranks':[site[1] for site in tfidf_rank_ids]}
 
     stats_db.close()
     site_words_db.close()
