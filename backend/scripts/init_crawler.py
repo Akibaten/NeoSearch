@@ -97,6 +97,8 @@ class NeocitiesSpider(scrapy.Spider):
             user_site_url = response.css("p.site-url a::attr(href)").get()
             user_site_title = response.css("title::text").get()[12:]
             time_since_update = int(time.time() - int(response.css("div.stat strong::attr(data-timestamp)").get())) 
+            
+            #adds current site to sites_visited 
             sites_visited.add(sites_to_visit[0])
 
             

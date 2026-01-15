@@ -1,6 +1,5 @@
 import sqlite3
 import math
-from collections import Counter
 from tqdm import tqdm
 
 site_words_db = sqlite3.connect("../data/site_words.db")
