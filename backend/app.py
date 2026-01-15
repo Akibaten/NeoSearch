@@ -83,7 +83,7 @@ def search():
     placeholders = ",".join("?" * len(keywords_as_ids))
 
     sql_query = f"""SELECT site_id
-                FROM site_words
+                FROM site_words_tfidf
                 WHERE word_id IN ({placeholders})
                 GROUP BY site_id
                 HAVING COUNT(DISTINCT word_id) = {len(keywords_as_ids)}"""
@@ -108,7 +108,8 @@ def search():
                 FROM id_rank_cte
                 JOIN site_stats.website ON id_rank_cte.id = site_stats.website.id
                 """
-    
+   
+    breakpoint()
     ids_with_ranks = neorank_db_cursor.execute(sql_query, tuple(site_ids)).fetchall()
     
     tfidf_rank_ids = []
@@ -119,6 +120,7 @@ def search():
     #query for  finding tf-idf values
     sql_query = f"SELECT tfidf FROM site_words_tfidf WHERE site_id =? AND word_id IN ({placeholders})"
 
+    breakpoint()
     #find tf-idf values
     for site in ids_with_ranks:
         #this is a sum in the case of multiple keywords
@@ -129,8 +131,15 @@ def search():
         
         #adding 1 here really smoothes it out because tfidf is a coefficient of rank in the sort
         tfidf_rank_ids.append((site[0],site[1]*(total_tfidf_value+1),site[3],site[4],site[5]))
+    breakpoint()
     tfidf_rank_ids.sort(key=lambda x: x[1], reverse=True)
+    breakpoint()
     query_timer_end = time()
+
+    stats_db.close()
+    site_words_db.close()
+    word_id_db.close()
+    neorank_db.close()
 
     #returns json of array with all sites in order
     return {'site_urls': [site[2] for site in tfidf_rank_ids],
@@ -138,8 +147,3 @@ def search():
             'site_title': [site[4] for site in tfidf_rank_ids],
             'query_duration': query_timer_end-query_timer_start,
             'ranks':[site[1] for site in tfidf_rank_ids]}
-
-    stats_db.close()
-    site_words_db.close()
-    word_id_db.close()
-    neorank_db.close()

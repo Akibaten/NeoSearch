@@ -112,7 +112,7 @@ class KeywordSpider(scrapy.Spider):
             if not href.startswith(('http://', 'https://','#')) or response.url in href:
                 if "." not in href.rsplit('/',1)[-1] or ".html" in href:
                     relative_url = response.urljoin(href)
-                    if (relative_url.startswith(('http://','https://'))
+                    if (relative_url.startswith(response.url)
                         and (site_id, relative_url) not in pages_to_visit
                         and (site_id, relative_url) not in pages_visited):
                         #appends sanitized relative url to the deque of pages to be visited
@@ -125,17 +125,17 @@ class KeywordSpider(scrapy.Spider):
          
         """
         This is my criteria for selecting elements of content text
-        This is not exhaustive but i didn't want ot make massive massive
+        This is not exhaustive but i didn't want to make massive massive
         site-word databases for questionable value out of random tags or js or something
         I would much prefer lots of pages indexed for a site vs storing ALL text for a given page
-        Note: this only gets text in an element and NOT text contained in child elements
         """
-        text_elements = (response.css('p::text').getall()
-                        + response.css('h1::text').getall()
-                        + response.css('h2::text').getall()
-                        + response.css('h3::text').getall()
-                        + response.css('a::text').getall()
-                        + response.css('li::text').getall())
+        text_elements = (response.css('p ::text').getall()
+                        + response.css('h1 ::text').getall()
+                        + response.css('h2 ::text').getall()
+                        + response.css('h3 ::text').getall()
+                        + response.css('h4 ::text').getall()
+                        + response.css('blockquote ::text').getall()
+                        + response.css('li ::text').getall())
 
         word_list = []
         for element in text_elements:
@@ -149,7 +149,6 @@ class KeywordSpider(scrapy.Spider):
             INSERT OR IGNORE INTO word_id_list(word)
             VALUES (?)
             """,[(word,) for word in set(word_list)])
-            
 
         for word in word_list:
             #fetches word ID
@@ -157,6 +156,8 @@ class KeywordSpider(scrapy.Spider):
                 SELECT id FROM word_id_list
                 WHERE word = ?
                                     """,(word,)).fetchone()[0]
+
+            
 
             site_words_db_cursor.execute("""
                 INSERT INTO site_words(site_id,word_id)
