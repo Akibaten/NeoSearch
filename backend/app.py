@@ -124,6 +124,13 @@ def search():
     sql_query = f"SELECT tfidf FROM site_words_tfidf WHERE site_id =? AND word_id IN ({placeholders})"
 
     tfidf_timer = time()
+
+    #how much weight rank and tfidf has
+    #its worth mentioning that rank and tfidf arent normalized so .03 and .97 arent probabilistic
+    #there is no particular reason it sums to one its more or less just easy to keep track of
+    rank_weight = .3
+    tfidf_weight = .7
+
     #find tf-idf values
     for site in ids_with_ranks:
         #this is a sum in the case of multiple keywords
@@ -132,8 +139,8 @@ def search():
                             (site[0], *[keyword for keyword in keywords_as_ids])
                             ).fetchall()])
         
-        #adding 1 here really smoothes it out because tfidf is a coefficient of rank in the sort
-        tfidf_rank_ids.append((site[0],site[1]*(total_tfidf_value+1),site[3],site[4],site[5]))
+        tfidf_rank_ids.append((site[0],rank_weight*site[1]+tfidf_weight*total_tfidf_value, total_tfidf_value, site[3],site[4],site[5]))
+    
     tfidf_rank_ids.sort(key=lambda x: x[1], reverse=True)
     tfidf_time = time() - tfidf_timer
     
@@ -153,8 +160,9 @@ def search():
     neorank_db.close()
 
     #returns json of array with all sites in order
-    return {'site_urls': [site[2] for site in tfidf_rank_ids],
-            'profile_urls': [site[3] for site in tfidf_rank_ids],
-            'site_title': [site[4] for site in tfidf_rank_ids],
+    return {'site_urls': [site[3] for site in tfidf_rank_ids],
+            'profile_urls': [site[4] for site in tfidf_rank_ids],
+            'site_title': [site[5] for site in tfidf_rank_ids],
             'query_duration': query_timer_end-query_timer_start,
-            'ranks':[site[1] for site in tfidf_rank_ids]}
+            'starting rank and tf-idf': [f"rank before: {site[1]/rank_weight-(tfidf_weight*site[2])} tfidf: {site[2]} rank after: {site[1]}" for site in tfidf_rank_ids]
+            } 
