@@ -68,6 +68,10 @@ site_words_db_cursor.executemany("""
     VALUES (?,?,?)
 """,tfidf_values)
 
+#sets up indices which SIGNIFICANTLY speeds up lookups during the search request
+site_words_db_cursor.execute("""CREATE INDEX IF NOT EXISTS idx_site_words_tfidf_word_site 
+                      ON site_words_tfidf(site_id, word_id)""")
+
 print("\n\n\nfinished calculating tf-idf")
 
 site_words_db.commit()

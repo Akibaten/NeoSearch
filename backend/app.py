@@ -49,9 +49,6 @@ def search():
 
     query_logger = structlog.get_logger()
 
-    #NOTE all paths with data/ are pathing to the render persistent disk mounted in the same directory as app.py
-    # this means that local files and the server files have the same path
-   
     stats_db = sqlite3.connect("data/site_stats.db")
     stats_db_cursor = stats_db.cursor()
 
@@ -67,19 +64,20 @@ def search():
     #gets keywords for query
     query = request.args.get("q","")
 
-    # write query to log
-    query_logger.info("search", query=f"{query}")
-
     #deletes duplicate keywords
     keywords = set(query.lower().translate(str.maketrans('','', string.punctuation)).split())
-
+    
     #converts keywords to their ids
+    keyword_id_timer = time()
     keywords_as_ids = [word_id_db_cursor.execute("""
                         SELECT id FROM word_id_list WHERE word=?""",(word,)).fetchone() for word in keywords]
-
+    
     # may have no results so this try checks that
     keywords_as_ids = tuple([id[0] for id in keywords_as_ids])
+    
+    keyword_id_time = time() - keyword_id_timer
 
+    site_ids_timer = time()
     placeholders = ",".join("?" * len(keywords_as_ids))
 
     sql_query = f"""SELECT site_id
@@ -90,11 +88,14 @@ def search():
                 
     site_ids = [int(site_id[0]) for site_id in site_words_db_cursor.execute(sql_query, keywords_as_ids).fetchall()]
 
+    site_ids_time = time() - site_ids_timer
+
     #beginning of rank function
     
     #creates a queries with a ton of ? = to the number of elements in id_list
     placeholders = ",".join("?" * len(site_ids))
 
+    ids_with_ranks_timer = time()
 
     neorank_db_cursor.execute("ATTACH DATABASE 'data/site_stats.db' AS site_stats")
     neorank_db_cursor.execute("ATTACH DATABASE 'data/site_words.db' AS site_words")
@@ -109,18 +110,20 @@ def search():
                 JOIN site_stats.website ON id_rank_cte.id = site_stats.website.id
                 """
    
-    breakpoint()
     ids_with_ranks = neorank_db_cursor.execute(sql_query, tuple(site_ids)).fetchall()
     
+    ids_with_ranks_time = time() - ids_with_ranks_timer
+
     tfidf_rank_ids = []
     
     #creates a ton of ? = to the number of keywords
     placeholders = ",".join("?" * len(keywords_as_ids))
     
+    
     #query for  finding tf-idf values
     sql_query = f"SELECT tfidf FROM site_words_tfidf WHERE site_id =? AND word_id IN ({placeholders})"
 
-    breakpoint()
+    tfidf_timer = time()
     #find tf-idf values
     for site in ids_with_ranks:
         #this is a sum in the case of multiple keywords
@@ -131,10 +134,18 @@ def search():
         
         #adding 1 here really smoothes it out because tfidf is a coefficient of rank in the sort
         tfidf_rank_ids.append((site[0],site[1]*(total_tfidf_value+1),site[3],site[4],site[5]))
-    breakpoint()
     tfidf_rank_ids.sort(key=lambda x: x[1], reverse=True)
-    breakpoint()
+    tfidf_time = time() - tfidf_timer
+    
     query_timer_end = time()
+
+    # write query to log
+    query_logger.info("search", query=f"{query}",
+                      keyword_id_time=f"{keyword_id_time}",
+                      site_ids_time=f"{site_ids_time}",
+                      ids_with_ranks_time=f"{ids_with_ranks_time}",
+                      tfidf_time=f"{tfidf_time}",
+                      query_time=f"{query_timer_end-query_timer_start}")
 
     stats_db.close()
     site_words_db.close()

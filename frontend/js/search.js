@@ -38,7 +38,7 @@ class SearchResult{
 
 async function getSearchData(query,page){ 
   try{
-    const response = await fetch(`https://neosearch.onrender.com/search?q=${query}`);
+    const response = await fetch(`https://service.neosearch.site/search?q=${query}`);
     const data = await response.json();
 
     let sitesPerPage = 10;
