@@ -18,11 +18,14 @@ let fontList = [
   "kosugi-maru"
 ]
 
+let sitesPerPage = 5;
+
 class SearchResult{
   constructor(site_url, profile_url, site_title){
     this.font = fontList[Math.floor(Math.random()*fontList.length)];
-    this.site_title_p = `<p class = "site-title" style="font-family: '${this.font}'
-"><a target="_blank" href="${site_url}">${site_title}</a></p>`;
+    this.site_title_p = `<p class = "site-title" style="font-family: '${this.font}'">
+                          <img src="https://favicon.vemetric.com/${site_url}?default=https://neocities.org/img/favicon.png" alt="${site_title}" height="32" width="32">
+                          <a target="_blank" href="${site_url}">${site_title}</a></p>`;
     this.site_url_p = `<p class = "site-url" style="font-family: '${this.font}'
 "><a target="_blank" href="${site_url}">${site_url}</a></p>`;
     this.profile_url_p = `<p class = "profile-url" style="font-family: '${this.font}'
@@ -40,8 +43,6 @@ async function getSearchData(query,page){
   try{
     const response = await fetch(`https://service.neosearch.site/search?q=${query}`);
     const data = await response.json();
-
-    let sitesPerPage = 10;
 
     page = parseInt(page);
 

@@ -10,9 +10,7 @@ NeoSearch aims to make Neocities more accessible for both experienced and inexpe
 
 It uses a concept vaguely based on pageRank by Google, but it uses Neocities analytics in addition to links between sites. It transforms an intermittently indexed large list of interconnected websites through Neocities social functions, and content contained on the websites themselves.
 
-The backend of NeoSearch is written in python with scraping done with the library [Scrapy](https://www.scrapy.org/) and databases written in SQL/sqlite3, although this is likely to change to PostgreSQL in the future.
-
-Currently NeoSearch indexes approximately 31,000 websites. Despite Neocities having many, many more sites than this (over 1.3 million according to the landing page), this seems to be the extent of the currently active and socially connected websites unless there are communities that share absolutely no connections to the main social graph.
+The backend of NeoSearch is written in python with scraping done with the library [Scrapy](https://www.scrapy.org/) and databases written in SQL/sqlite3.
 
 # Current Features
 NeoSearch currently supports exact multi keyword searching with plans for semantic search in the future.
@@ -29,7 +27,7 @@ The dependencies required for the python scripts to run can be found in backend/
 
 Installing these should preferably be done in a [virtual environment](https://docs.python.org/3/library/venv.html), but they can also just be installed globally.
 
-To install these, simply run this scripts in bash(linux) or zsh (macOS) when in the venv or just from the terminal if you are installing globally
+To install these, simply run this scripts in Linux or macOS when in the venv or just from the terminal if you are installing globally
 
 ```
 pip install -r requirements.txt	
@@ -37,35 +35,28 @@ pip install -r requirements.txt
 
 A small database of 500 websites is included in the repo, but if you would like to index your own, simply run this command. Each of these commands is likely to take a while. A progress bar is included in the console.
 
-## zsh (macOS)
+## macOS/Linux
 ```
-python3 scripts/init_crawler.py "the number of sites you want to crawl"
+python3 scripts/init_crawler.py "name of starting profile" "the number of sites you want to crawl"
+python3 scripts/word_indexer.py
+python3 scripts/tf-idf.py
 ```
 
-## bash (linux)
+## Linux
 ```
 python scripts/init_crawler.py "the number of sites you want to crawl"
+python scripts/word_indexer.py
 ```
 
 Upon its completion run this command to build the database for words from websites
 
-## zsh (macOS)
-```
-python3 scripts/word_indexer.py
-```
-
-## bash (linux)
-```
-python scripts/word_indexer.py
-```
-
 Then run this command to create the database for the rankings of sites that is used to rank results
-## zsh (macOS)
+## macOS
 ```
 python3 scripts/neoranker.py
 ```
 
-## bash (linux)
+## Linux
 ```
 python scripts/neoranker.py
 ```
