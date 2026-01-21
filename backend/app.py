@@ -123,6 +123,7 @@ def search():
     #query for  finding tf-idf values
     sql_query = f"SELECT tfidf FROM site_words_tfidf WHERE site_id =? AND word_id IN ({placeholders})"
 
+<<<<<<< HEAD
     tfidf_timer = time()
 
     #how much weight rank and tfidf has
@@ -131,6 +132,8 @@ def search():
     rank_weight = .3
     tfidf_weight = .7
 
+=======
+>>>>>>> d66319c (app change i guess idk what i changed i forgor)
     #find tf-idf values
     for site in ids_with_ranks:
         #this is a sum in the case of multiple keywords
@@ -139,11 +142,17 @@ def search():
                             (site[0], *[keyword for keyword in keywords_as_ids])
                             ).fetchall()])
         
+<<<<<<< HEAD
         tfidf_rank_ids.append((site[0],rank_weight*site[1]+tfidf_weight*total_tfidf_value, total_tfidf_value, site[3],site[4],site[5]))
     
     tfidf_rank_ids.sort(key=lambda x: x[1], reverse=True)
     tfidf_time = time() - tfidf_timer
     
+=======
+        #adding 1 here really smoothes it out because tfidf is a coefficient of rank in the sort
+        tfidf_rank_ids.append((site[0],site[1]*(total_tfidf_value+1),site[3],site[4],site[5]))
+    tfidf_rank_ids.sort(key=lambda x: x[1], reverse=True)
+>>>>>>> d66319c (app change i guess idk what i changed i forgor)
     query_timer_end = time()
 
     # write query to log
