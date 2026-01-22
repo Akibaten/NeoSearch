@@ -14,6 +14,11 @@
           If you include the next line in all your web pages, they will all share the same look.
           This makes it easier to make new pages for your site. -->
     <link href="/css/results.css" rel="stylesheet" type="text/css" media="all">
+    <script>
+      function stopLoadingText() {
+        clearInterval(loadingTextLoop) 
+      }
+    </script>
     <script src="/js/search.js"></script>
   </head>
   <body>
@@ -31,8 +36,21 @@
       <div id="query-duration">
       </div>
     </div>
-    <div id="results-page" style="visibility: hidden">
+    <div id="results-page">
       <div id="results">
+        <!-- loading screen -->
+        <h1 id="loading" style="text-align: center"></h1>
+        <script>
+          var loading = document.getElementById("loading");
+          loading.innerHTML = "Loading"
+          loadingTextLoop = setInterval(function (){
+            if(loading.innerHTML != "Loading..."){
+              loading.innerHTML += "."
+            }else{
+              loading.innerHTML = "Loading"
+            }
+          },250)
+        </script>
       </div>
       <div id="page-navigation">
       </div>

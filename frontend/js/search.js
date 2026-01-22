@@ -98,8 +98,9 @@ async function getSearchData(query,page){
 }
 
 function renderResults(searchResults){
-  //makes result section visible
-  document.getElementById('results-page').style = "visibility: visible";
+  //clears the loading text
+  stopLoadingText();
+  document.getElementById("loading").style = "display: none"
 
   resultElements = "";
   if(searchResults){
