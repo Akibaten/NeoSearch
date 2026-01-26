@@ -12,7 +12,6 @@ html * {
 
 #title {
   text-align: center;
-  margin: 1rem;
 }
 
 #search-bar {
@@ -115,6 +114,7 @@ html * {
 
 h1 {
   font-size: 5em;
+  margin: 0;
 }
 
 h2 {
