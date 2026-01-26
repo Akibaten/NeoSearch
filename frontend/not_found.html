@@ -22,9 +22,16 @@
     <script src="/js/search.js"></script>
   </head>
   <body>
+    <script>
+      let mode = document.cookie;
+      if(mode == "dark"){
+        document.body.classList.toggle('dark-mode');
+        console.log("true")
+      }
+    </script>
     <div id="header">
       <h1 id="title">
-        <a href="/" style="color: black; text-decoration: none">NeoSearch</a>
+        <a href="/">NeoSearch</a>
       </h1>
       <div id="search-bar">
         <input type="text" id="search-bar-input" class="form-control" placeholder="Search Neocities!">
@@ -65,12 +72,12 @@
           });
       </script>
     </div>
-    <div class = "footer">
-      <p style="text-align: center; font-size: 1em; color: #3D3D3D">
+    <div id = "footer">
+      <p>
         Found a bug or have suggestions or feedback? <strong><a href="https://forms.gle/BAt9t6RtBN4yNEhe9" style="color: blue">Fill out a form!</a></strong>
         I greatly appreciate it ˶ᵔᵕᵔ˶
       </p>
-      <p style="text-align: center; font-size: 1em; color: #3D3D3D">
+      <p>
         ⋆˚✿˖° Made with all the love in the world by <a href="https://akibaten.xyz" style="color: blue">sarah</a>°˖✿˚⋆
       </p>
     </div>

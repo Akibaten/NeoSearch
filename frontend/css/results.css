@@ -35,6 +35,7 @@ html * {
   width: 20%;
   height: 2rem;
   margin: 0 0 1rem 0;
+  color: var(--text-color)
 }
 
 #results {
@@ -44,7 +45,7 @@ html * {
 }
 
 .page-number {
-  color: blue;
+  color: var(--link-color);
   font-size: 1.5em;
 }
 
@@ -63,6 +64,8 @@ html * {
   display: inline-block;
   border-radius: .5rem;
   border: 1px solid black;
+  color: var(--text-color);
+  border-color: var(--border-color)
 }
 
 #search-bar-input {
@@ -72,6 +75,7 @@ html * {
   font-size: 1.1em;
   border-radius: .5rem;
   border: 1px solid transparent;
+  color: var(--text-color);
   margin: 0;
   padding-left: 1%;
 }
@@ -104,7 +108,7 @@ html * {
 }
 
 .site-title a {
-  color: blue;
+  color: var(--link-color);
 }
 
 .site-url {
@@ -130,9 +134,43 @@ html * {
   font-size: 1.5em !important;
 }
 
-.footer {
-  position: relative;
+#footer {
+  height: auto;
   width: 100%;
+  text-align: center;
+  font-size: 1em;
+  color: var(--footer-text-color);
+}
+
+:root {
+  --bg-color: #FFFFFF;
+  --link-color: blue;
+  --text-color: black;
+  --border-color: black;
+  --placeholder-color: #595c5f;
+  --footer-text-color: #3D3D3D;
+}
+
+body.dark-mode {
+  --bg-color: #222428;
+  --text-color: white;
+  --link-color: #88aaff;
+  --border-color: white;
+  --placeholder-color:#a6a3a0;  
+  --footer-text-color: #C2C2C2;
+}
+
+#search-bar-input::placeholder{
+  color: var(--placeholder-color)
+}
+
+#search-button{
+  color: var(--placeholder-color)
+}
+
+#title {
+  text-decoration: none;
+  color: var(--text-color)
 }
 
 h1 {
@@ -145,13 +183,13 @@ h2 {
 }
 
 a {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 body {
-  background-color: #FAFAFA;
-  color: black;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: Verdana;
   margin: 0;
   font-family: 'capriola';
