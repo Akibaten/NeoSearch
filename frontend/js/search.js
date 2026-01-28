@@ -18,7 +18,7 @@ let fontList = [
   "kosugi-maru"
 ]
 
-let sitesPerPage = 5;
+let sitesPerPage = 10;
 
 class SearchResult{
   constructor(site_url, profile_url, site_title){

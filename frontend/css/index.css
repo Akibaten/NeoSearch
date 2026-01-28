@@ -11,8 +11,8 @@ html * {
 }
 
 #title {
-  text-align: center;
   margin: 1rem;
+  text-align: center;
 }
 
 #search-bar {
