@@ -44,12 +44,6 @@ python3 scripts/word_indexer.py
 python3 scripts/tf-idf.py
 ```
 
-## Linux
-```
-python scripts/init_crawler.py "the number of sites you want to crawl"
-python scripts/word_indexer.py
-```
-
 Upon its completion run this command to build the database for words from websites
 
 Then run this command to create the database for the rankings of sites that is used to rank results
