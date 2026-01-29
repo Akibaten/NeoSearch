@@ -1,45 +1,87 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>NeoSearch</title>
-		<!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-		<link href="/css/index.css" rel="stylesheet" type="text/css" media="all">
-		<script src="/js/search.js"></script>
-	</head>
-	<body>
-		<div id="search-page">
-			<h1 style="text-align:center">
-				NeoSearch
-			</h1>
-			<input type="text" id="search-bar-input" placeholder="Search Neocities!">
-			<input type="submit" id="search-button" onclick="
-					let query = document.getElementById('search-bar-input').value;
-					window.location.href = `/search?q=${query}&page=1`" value="Search">
-
-			<!-- adds event for pressing enter in the search bar -->
-			<script>
-				var input = document.getElementById("search-bar-input");
-				input.addEventListener("keypress", function(event) {
-					if (event.key === "Enter") {
-						event.preventDefault();
-						document.getElementById("search-button").click();
-					}
-					});
-			</script>
-		</div>
-		<div style="position: absolute; bottom: 0rem; left: 0; right: 0">
-			<p style="text-align: center; font-size: 1em; color: #3D3D3D">
-				Found a bug or have suggestions or feedback? <strong><a href="https://forms.gle/BAt9t6RtBN4yNEhe9">Fill out a form!</a></strong>
-				I greatly appreciate it ˶ᵔᵕᵔ˶
-			</p>
-			<p style="text-align: center; font-size: 1em; color: #3D3D3D">
-				⋆˚✿˖° Made with all the love in the world by <a href="https://akibaten.xyz">sarah</a>
-				°˖✿˚⋆
-			</p>
-		</div>
-	</body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoSearch</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+          If you include the next line in all your web pages, they will all share the same look.
+          This makes it easier to make new pages for your site. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    <link href="/css/index.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <div>
+    <div id="header" style="display:flex;">
+      <p style = "margin-right: 1rem;" id = "about-link">
+        <a href="/about.html">ⓘ about</a>
+      </p>
+      <div class="form-check form-switch" style="display:inline-block">
+        <style>
+          .form-check-input:checked {
+            background-color: #222428;
+            border-color: grey;
+          }
+          
+          .form-check-input:focus {
+            box-shadow: none !important;
+          }
+        </style>
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault"
+          onclick="
+          document.body.classList.toggle('dark-mode');
+          if(document.getElementById('switchCheckDefault').checked == false){
+            document.cookie = 'light'
+          }else{
+            document.cookie = 'dark'
+          }
+        ">
+        <label class="form-check-label" for="switchCheckDefault">
+          Darkmode
+        </label>
+      </div>
+    </div>
+    <div id="search-page">
+      <h1 id = "title">
+        <a href="/" style="color:var(--text-color)">
+          <img src="/img/neosearch-logo.png" style = "width: 50%;">
+        </a>
+      </h1>
+      <div id="search-bar">
+        <input type="text" id="search-bar-input" class="form-control" placeholder="Search Neocities!">
+        <input type="submit" id="search-button" onclick="
+            let query = document.getElementById('search-bar-input').value;
+            window.location.href = `/search?q=${query}&page=1`" value="">
+      </div>
+      <!-- adds event for pressing enter in the search bar -->
+      <script>
+        var input = document.getElementById("search-bar-input");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              document.getElementById("search-button").click();
+            }
+          }
+          );
+      </script>
+      <!-- switches to dark mode if cookie says dark mode -->
+      <script>
+        let mode = document.cookie;
+        if(mode == "dark"){
+          document.body.classList.toggle('dark-mode');
+          document.getElementById("switchCheckDefault").checked = true;
+        }
+      </script>
+    </div>
+    <div id = "footer">
+      <p>
+        Found a bug or have suggestions or feedback? <strong><a href="https://forms.gle/BAt9t6RtBN4yNEhe9" >Fill out a form!</a></strong>
+        I greatly appreciate it ˶ᵔᵕᵔ˶
+      </p>
+      <p>
+        ⋆˚✿˖° Made with all the love in the world by <a href="https://akibaten.xyz" >sarah</a>°˖✿˚⋆
+      </p>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,168 @@
+html * {
+  box-sizing: border-box;
+}
+
+#about {
+  padding: 0 20% 0 20%;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+  height: 100%
+}
+
+#header {
+  padding: 0 20% 0 20%;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+}
+
+#title {
+  text-align: left;
+  margin: 2rem 0 0 0;
+}
+
+#footer {
+  position: relative;
+  height: auto;
+  width: 100%;
+  margin-top: 2rem;
+  bottom: 1rem;
+  text-align: center;
+  font-size: 1em !important;
+  color: var(--footer-text-color);
+}
+
+#footer a{
+  color: var(--link-color)
+}
+
+:root {
+  --bg-color: #FFFFFF;
+  --link-color: blue;
+  --text-color: black;
+  --border-color: black;
+  --placeholder-color: #595c5f;
+  --footer-text-color: #3D3D3D;
+}
+
+body.dark-mode {
+  --bg-color: #222428;
+  --text-color: white;
+  --link-color: #88aaff;
+  --border-color: white;
+  --placeholder-color:#a6a3a0;  
+  --footer-text-color: #C2C2C2;
+}
+
+#title {
+  text-decoration: none;
+  color: var(--text-color)
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  text-align: left;
+  font-size: 1.5em;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Verdana;
+  margin: 0;
+  font-family: 'capriola';
+}
+
+@font-face {
+  font-family: 'capriola';
+  src: url(../fonts/Capriola-Regular.ttf)
+}
+
+@font-face {
+  font-family: 'alice';
+  src: url(../fonts/Alice-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url(../fonts/Fredoka.ttf);
+}
+
+@font-face {
+  font-family: 'Frutiger';
+  src: url(../fonts/Frutiger.ttf);
+}
+
+@font-face {
+  font-family: 'NEC_AP3';
+  src: url(../fonts/NEC_AP3.ttf);
+}
+
+@font-face {
+  font-family: 'nunito';
+  src: url(../fonts/Nunito.ttf);
+}
+
+@font-face {
+  font-family: 'PixelifySans';
+  src: url(../fonts/PixelifySans.ttf);
+}
+
+@font-face {
+  font-family: 'rainyhearts';
+  src: url(../fonts/rainyhearts.ttf);
+}
+
+@font-face {
+  font-family: 'remington';
+  src: url(../fonts/remington.ttf);
+}
+
+@font-face {
+  font-family: 'Segoe-UI-Semilight';
+  src: url(../fonts/Segoe-UI-Semilight.ttf);
+}
+
+@font-face {
+  font-family: 'short-stack';
+  src: url(../../fonts/ShortStack.ttf);
+}
+
+@font-face {
+  font-family: 'space-grotesk';
+  src: url(../fonts/SpaceGrotesk.ttf);
+}
+
+@font-face {
+  font-family: 'kosugi-maru';
+  src: url(../fonts/KosugiMaru.ttf);
+}
+
+@font-face {
+  font-family: 'Arial-Narrow';
+  src: url(../fonts/arialnarrow.ttf);
+}
+
+@font-face {
+  font-family: 'nerd-font';
+  src: url(../fonts/SymbolsNerdFont-Regular.ttf)
+}

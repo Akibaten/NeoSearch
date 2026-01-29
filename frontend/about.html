@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- site font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <title>NeoSearch</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+          If you include the next line in all your web pages, they will all share the same look.
+          This makes it easier to make new pages for your site. -->
+    <link href="/css/about.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <script>
+      let mode = document.cookie;
+      if(mode == "dark"){
+        document.body.classList.toggle('dark-mode');
+        console.log("true")
+      }
+    </script>
+    <div id="header">
+      <h1 id="title">
+        <a href="/"><img src="/img/neosearch-logo.png" style = "height: 5rem"></a>
+      </h1>
+    </div>
+    <section id="about">
+      <article id ="intro">
+        <h2>
+          About
+        </h2>
+        <p>
+          NeoSearch is a search engine for Neocities.org, a site that hosts a static site for you for free!
+          It's an incredible service, and I tell everyone on and offline to make a website through it. In addition to hosting static sites, it also has accompanying profiles on its own website that allow you to follow others, watch for updates, and comment and send them messages.
+          Unfortunately, Neocities lacks a search function that would help people find websites they love, and as
+          many rabbitholes as there are through beautifully, handcrafted websites, not knowing where to start makes it harder to jump down them.
+        </p>
+        <p>
+          NeoSearch aims to make Neocities more accessible for both experienced and inexperienced IndieWeb surfers by showing them websites relevant to them and gives them entrances into the vast interconnected rabbit holes that make up the IndieWeb.
+        </p>
+        <p>
+          It is a guarantee that searched keywords do exist somewhere on the sites that are returned. Sometimes they are kind of hard to find, but exploring websites to find them is designed this way and is a nice challenge.
+        </p>
+      </article>
+      <article id="credits">
+        <h2>
+          Credits
+        </h2>
+        <p>
+          NeoSearch would not have been possible completely alone, and while everything was coded by me and I had a generous hand in everything, some people are better at things than me, and I am very grateful for their help in making NeoSearch what it is now.
+          <ul style = "list-style-type: '♡ '; line-height: 2rem">
+            <li>
+              The logo was drawn by my wonderful roommate Amelia
+            </li>
+            <li>
+              Thank you to <a href="https://ransei.neocities.org/">Ransei</a>, <a href="https://doqmeat.com/"> doqmeat</a>, and <a href="https://lilithdev.neocities.org/">LilithDev</a><br>
+              Even though these people have no clue, these sites were super super super useful for me testing search result quality and for indexing websites because they are really high-quality sites with lots of content and are active in the community :D
+            </li>
+            <li>
+              Libraries: <a href="https://www.scrapy.org/">Scrapy</a>, SQLite3 
+            </li>
+            <li>
+              Thank you to my friends for letting me rant about this endlessly for a few months ˶ᵔ ᵕ ᵔ˶
+            </li>
+            <li>
+              and huge huge huge thank you to Neocities for being so amazing that I would be pushed to make this (and also for putting up with me hammering their site with requests for a few months without blocking me)
+            </li>
+          </ul>
+        </p>
+      </article>
+      <article>
+        <h2>
+          How Data is Handled
+        </h2>
+        <p>
+          For the purposes of full transparency, the only data kept or logged from users is queries that are made. <u><em>No</em></u> identifying information or information relating to how it is used about the queries made (i.e. what links someone clicks or how long they spend on a page) is logged.
+        </p>
+        <p>
+          NeoSearch is and always will be opensource, and the code can be expected at anytime on the <a href="https://github.com/Akibaten/NeoSearch">public github repository</a>.
+        </p>
+      </article>
+    </section>
+    <div id = "footer">
+      <p>
+        Found a bug or have suggestions or feedback? <strong><a href="https://forms.gle/BAt9t6RtBN4yNEhe9">Fill out a form!</a></strong>
+        I greatly appreciate it ˶ᵔᵕᵔ˶
+      </p>
+      <p>
+        ⋆˚✿˖° Made with all the love in the world by <a href="https://akibaten.xyz">sarah</a>°˖✿˚⋆
+      </p>
+    </div>
+  </body>
+</html>

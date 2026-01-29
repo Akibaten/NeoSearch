@@ -3,32 +3,61 @@ html * {
 }
 
 #search-page {
-  padding: 10% 20% 0 20%;
+  padding: 27.5vh 20% 0 20%;
   display: flex;
   flex-direction: column;
   width: 100vw;
   justify-content: center;
 }
 
+#title {
+  margin: 1rem;
+  text-align: center;
+}
+
+#search-bar {
+  width: 80%;
+  height: 2.5rem;
+  margin: 0 10% 0 10%;
+  display: flex;
+  border-radius: .5rem;
+  border: 1px solid black;
+  border-color: var(--border-color);
+}
+
 #search-bar-input {
-  height: 2rem;
-  font-size: 1.3em;
-  margin: 0 auto 2rem auto;
-  width: 100%;
-  display: block;
+  background-color: transparent;
+  display: inline-block;
+  width: 90%;
+  font-size: 1.1em;
+  border-radius: .5rem;
+  border: 1px solid transparent;
+  margin: 0;
+  padding-left: 1%;
+  color: var(--text-color);
+}
+
+#search-bar-input:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 #search-bar-input input {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 #search-button {
-  margin-top: 10%;
-  display: block;
-  margin: 0 auto 0 auto;
-  width: 30%;
-  height: 2rem;
+  border-radius: .5rem;
+  border: 1px solid transparent;
+  width: 10%;
+  display: inline-block;
+  background-color: transparent;
+  margin: 0;
+  height: 2.5rem;
+  font-family: nerd-font;
+  cursor: pointer;
 }
+
 
 #results-page {
   padding: 0 20% 0 20%;
@@ -58,8 +87,44 @@ html * {
   font-size: 1.5em;
 }
 
+#header{
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+}
+
+#footer {
+  position: absolute;
+  height: auto;
+  width: 100%;
+  bottom: 1rem;
+  text-align: center;
+  font-size: 1em !important;
+  color: var(--footer-text-color);
+}
+
+#footer a{
+  color: var(--link-color)
+}
+
+#about-link a{
+  color: var(--text-color);
+  border-bottom: 2px dotted var(--text-color)
+}
+
+@media (max-width: 600px) {
+  #search-page {
+    padding: 25% 0 0 0 !important;
+  }
+  
+  h1 {
+    font-size: 3em !important;
+  }
+}
+
 h1 {
-  font-size: 3em;
+  font-size: 5em;
+  margin: 0;
 }
 
 h2 {
@@ -68,18 +133,41 @@ h2 {
 }
 
 p {
-  font-size: 1.2em;
 }
 
 a {
   text-decoration: none;
-  color: blue;
+}
+
+:root {
+  --bg-color: #FFFFFF;
+  --text-color: black;
+  --border-color: black;
+  --link-color: blue;
+  --placeholder-color: #595c5f;
+  --footer-text-color: #3D3D3D;
+}
+
+body.dark-mode {
+  --bg-color: #222428;
+  --text-color: white;
+  --link-color: #88aaff;
+  --border-color: white;
+  --placeholder-color:#a6a3a0;  
+  --footer-text-color: #C2C2C2;
+}
+
+#search-bar-input::placeholder{
+  color: var(--placeholder-color)
+}
+
+#search-button{
+  color: var(--placeholder-color)
 }
 
 body {
-  background-color: white;
-  color: black;
-  font-family: Verdana;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
   font-family: 'capriola';
 }
@@ -87,4 +175,9 @@ body {
 @font-face {
   font-family: 'capriola';
   src: url(../fonts/Capriola-Regular.ttf)
+}
+
+@font-face {
+  font-family: 'nerd-font';
+  src: url(../fonts/SymbolsNerdFont-Regular.ttf)
 }
