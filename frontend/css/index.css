@@ -103,6 +103,15 @@ html * {
   color: var(--footer-text-color);
 }
 
+#footer a{
+  color: var(--link-color)
+}
+
+#about-link a{
+  color: var(--text-color);
+  border-bottom: 2px dotted var(--text-color)
+}
+
 @media (max-width: 600px) {
   #search-page {
     padding: 25% 0 0 0 !important;
@@ -134,6 +143,7 @@ a {
   --bg-color: #FFFFFF;
   --text-color: black;
   --border-color: black;
+  --link-color: blue;
   --placeholder-color: #595c5f;
   --footer-text-color: #3D3D3D;
 }
@@ -141,6 +151,7 @@ a {
 body.dark-mode {
   --bg-color: #222428;
   --text-color: white;
+  --link-color: #88aaff;
   --border-color: white;
   --placeholder-color:#a6a3a0;  
   --footer-text-color: #C2C2C2;

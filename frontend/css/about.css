@@ -2,12 +2,13 @@ html * {
   box-sizing: border-box;
 }
 
-#results-page {
+#about {
   padding: 0 20% 0 20%;
   display: flex;
   flex-direction: column;
   width: 100vw;
   justify-content: center;
+  height: 100%
 }
 
 #header {
@@ -23,122 +24,14 @@ html * {
   margin: 2rem 0 0 0;
 }
 
-#search-bar-input {
-  height: 2rem;
-  font-size: 1.25em;
-  width: 75%;
-  margin: 0 0 1rem 0;
-}
-
-#search-button {
-  font-size: 1.25em;
-  width: 20%;
-  height: 2rem;
-  margin: 0 0 1rem 0;
-  color: var(--text-color)
-}
-
-#results {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.page-number {
-  color: var(--link-color);
-  font-size: 1.5em;
-}
-
-.search-result {
-  width: 100%;
-  margin: 2rem 0 2rem 0;
-  position: relative;
-  display: block;
-}
-
-
-#search-bar {
-  width: 100%;
-  height: 2.5rem;
-  margin: 0 10% 0 0;
-  display: inline-block;
-  border-radius: .5rem;
-  border: 1px solid black;
-  color: var(--text-color);
-  border-color: var(--border-color)
-}
-
-#search-bar-input {
-  width: 89%;
-  background-color: transparent;
-  display: inline-block;
-  font-size: 1.1em;
-  border-radius: .5rem;
-  border: 1px solid transparent;
-  color: var(--text-color);
-  margin: 0;
-  padding-left: 1%;
-}
-
-#search-bar-input:focus {
-  outline: none;
-}
-
-#search-bar-input input {
-  font-size: 2rem;
-}
-
-#search-button {
-  border-radius: .5rem;
-  border: 1px solid transparent;
-  width: 10%;
-  display: inline-block;
-  background-color: transparent;
-  margin: 0;
-  height: 2.5rem;
-  font-family: nerd-font;
-  cursor: pointer;
-}
-
-
-.site-title {
-  font-size: 1.75em;
-  margin: 0 0 1rem 0;
-  width: 90%;
-}
-
-.site-title a {
-  color: var(--link-color);
-}
-
-.site-url {
-  margin: 0;
-}
-
-.profile-url {
-  margin: 0;
-}
-
-.no-results {
-  width: 100%;
-  font-size: 2em;
-  text-align: center;
-}
-
-#page-navigation {
-  margin: 2rem 0 2rem 0;
-}
-
-#page-navigation a {
-  margin-right: 1rem !important;
-  font-size: 1.5em !important;
-}
-
 #footer {
+  position: relative;
   height: auto;
   width: 100%;
+  margin-top: 2rem;
+  bottom: 1rem;
   text-align: center;
-  font-size: 1em;
+  font-size: 1em !important;
   color: var(--footer-text-color);
 }
 
@@ -164,14 +57,6 @@ body.dark-mode {
   --footer-text-color: #C2C2C2;
 }
 
-#search-bar-input::placeholder{
-  color: var(--placeholder-color)
-}
-
-#search-button{
-  color: var(--placeholder-color)
-}
-
 #title {
   text-decoration: none;
   color: var(--text-color)
@@ -182,12 +67,20 @@ h1 {
 }
 
 h2 {
-  text-align: center;
-  font-size: 1em;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+strong {
+  font-weight: bold;
 }
 
 a {
-  color: var(--text-color);
+  color: var(--link-color);
   text-decoration: none;
 }
 

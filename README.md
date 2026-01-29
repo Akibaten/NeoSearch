@@ -8,6 +8,8 @@ many rabbitholes as there are through beautifully, handcrafted websites, not kno
 
 NeoSearch aims to make Neocities more accessible for both experienced and inexperienced IndieWeb surfers by showing them websites relevant to them and gives them entrances into the vast interconnected rabbit holes that make up the IndieWeb.
 
+It is a guarantee that searched keywords do exist somewhere on the sites that are returned. Sometimes they are kind of hard to find, but exploring websites to find them is designed this way and is a nice challenge.
+
 It uses a concept vaguely based on pageRank by Google, but it uses Neocities analytics in addition to links between sites. It transforms an intermittently indexed large list of interconnected websites through Neocities social functions, and content contained on the websites themselves.
 
 The backend of NeoSearch is written in python with scraping done with the library [Scrapy](https://www.scrapy.org/) and databases written in SQL/sqlite3.
