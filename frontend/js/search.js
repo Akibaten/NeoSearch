@@ -41,8 +41,15 @@ class SearchResult{
 
 async function getSearchData(query,page){ 
   try{
-    const response = await fetch(`https://service.neosearch.site/search?q=${query}`);
-    const data = await response.json();
+    let response = await fetch('js/env.json');
+    let data = await response.json();
+    const ENVIRONMENT = data.ENVIRONMENT;
+    if(ENVIRONMENT != "dev"){
+      response = await fetch(`https://service.neosearch.site/search?q=${query}`);
+    }else{
+      response = await fetch(`http://127.0.0.1:5000/search?q=${query}`)
+    }
+    data = await response.json();
 
     page = parseInt(page);
 
