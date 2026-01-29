@@ -47,17 +47,10 @@ python3 scripts/tf-idf.py
 Upon its completion run this command to build the database for words from websites
 
 Then run this command to create the database for the rankings of sites that is used to rank results
-## macOS
+## macOS/Linux
 ```
 python3 scripts/neoranker.py
 ```
-
-## Linux
-```
-python scripts/neoranker.py
-```
-
-This should make your own local database.
 
 # Usage
 
