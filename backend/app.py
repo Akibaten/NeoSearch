@@ -17,7 +17,6 @@ app = Flask(__name__)
 
 CORS(app, origins=[
     "http://localhost:8000",
-    "http://localhost:8001",
     "http://127.0.0.1:8000",
     "https://neosearch.site"
 ])
@@ -73,19 +72,27 @@ def search():
     keyword_id_timer = time()
     keywords_as_ids = [word_id_db_cursor.execute("""
                         SELECT id FROM word_id_list WHERE word=?""",(word,)).fetchone() for word in keywords]
-    
     keyword_id_time = time() - keyword_id_timer
-
+    
     site_ids_timer = time()
-    placeholders = ",".join("?" * len(keywords_as_ids))
+    
+    # may have no results so this try checks that
+    try:
+        keywords_as_ids = tuple([id[0] for id in keywords_as_ids])
+        
 
-    sql_query = f"""SELECT site_id
-                FROM site_words_tfidf
-                WHERE word_id IN ({placeholders})
-                GROUP BY site_id
-                HAVING COUNT(DISTINCT word_id) = {len(keywords_as_ids)}"""
-                
-    site_ids = [int(site_id[0]) for site_id in site_words_db_cursor.execute(sql_query, keywords_as_ids).fetchall()]
+        placeholders = ",".join("?" * len(keywords_as_ids))
+
+        sql_query = f"""SELECT site_id
+                    FROM site_words_tfidf
+                    WHERE word_id IN ({placeholders})
+                    GROUP BY site_id
+                    HAVING COUNT(DISTINCT word_id) = {len(keywords_as_ids)}"""
+                    
+        site_ids = [int(site_id[0]) for site_id in site_words_db_cursor.execute(sql_query, keywords_as_ids).fetchall()]
+        print(site_ids)
+    except:
+        site_ids = []
 
     site_ids_time = time() - site_ids_timer
 
