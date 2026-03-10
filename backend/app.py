@@ -17,6 +17,7 @@ app = Flask(__name__)
 
 CORS(app, origins=[
     "http://localhost:8000",
+    "http://localhost:8001",
     "http://127.0.0.1:8000",
     "https://neosearch.site"
 ])
@@ -72,9 +73,6 @@ def search():
     keyword_id_timer = time()
     keywords_as_ids = [word_id_db_cursor.execute("""
                         SELECT id FROM word_id_list WHERE word=?""",(word,)).fetchone() for word in keywords]
-    
-    # may have no results so this try checks that
-    keywords_as_ids = tuple([id[0] for id in keywords_as_ids])
     
     keyword_id_time = time() - keyword_id_timer
 
