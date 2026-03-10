@@ -90,7 +90,6 @@ def search():
                     HAVING COUNT(DISTINCT word_id) = {len(keywords_as_ids)}"""
                     
         site_ids = [int(site_id[0]) for site_id in site_words_db_cursor.execute(sql_query, keywords_as_ids).fetchall()]
-        print(site_ids)
     except:
         site_ids = []
 
